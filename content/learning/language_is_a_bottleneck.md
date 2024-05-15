@@ -13,4 +13,4 @@ aliases:
 draft: false
 ---
 ### [Language is a Bottleneck for Thought](https://aethermug.com/posts/language-is-a-bottleneck-for-thought)
-Marco Giancotti making a great point on how our words really can't express our thoughts. This post has been hugely influential on how I think about [learning and understanding](/blog/knowing_vs_understanding).
+Marco Giancotti making a great point on how our words really can't express our thoughts. This post has been hugely influential on how I think about [learning and understanding](/blog/blog/knowing_vs_understanding).

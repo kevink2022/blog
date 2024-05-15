@@ -96,15 +96,15 @@ Whats far more likely then a simple mistranslation, and what I'm sure you've enc
 
 At this point, all bets are off, who knows if your going to translate that code correctly.
 
-I could take the time to come up with some more examples, but I would highly recommend taking the time to watch these two [CodeAesthetic](/learning/code_aesthetic) videos. Their examples are much more engaging then what I'd come up with, and I think are both videos getting after this core idea. In all of the examples they give, notice how the function (the model) of the code doesn't change at all, but the added context (the translation) helps make the code more understandable and maintainable.
+I could take the time to come up with some more examples, but I would highly recommend taking the time to watch these two [CodeAesthetic](/blog/learning/code_aesthetic) videos. Their examples are much more engaging then what I'd come up with, and I think are both videos getting after this core idea. In all of the examples they give, notice how the function (the model) of the code doesn't change at all, but the added context (the translation) helps make the code more understandable and maintainable.
 - [Naming Things in Code (7:24)](https://www.youtube.com/watch?v=-J3wNP6u5YU)
 - [Don't Write Comments (5:54)](https://www.youtube.com/watch?v=Bf7vDBBOBUA)
 
-To take this one last step forward: when we fail to write our translations down, what we end up writing might not even match what we had in our heads. While thought is [deep and intricate](/blog/knowing_vs_understanding), its also a by nature a [lossy medium](/learning/language_is_a_bottleneck). Don't add more loss for no reason.
+To take this one last step forward: when we fail to write our translations down, what we end up writing might not even match what we had in our heads. While thought is [deep and intricate](/blog/blog/knowing_vs_understanding), its also a by nature a [lossy medium](/blog/learning/language_is_a_bottleneck). Don't add more loss for no reason.
 
 > "Writing the decisions down is essential. Only when one writes do the gaps appear and the inconsistencies protrude. The act of setting turns out to require hundreds of mini decisions, and if the existence of these that distinguishes clear, exact policies from the fuzzy ones."
 > 
-> --- Fred Brooks, [*The Mythical Man-Month*](/learning/the_mythical_man_month)
+> --- Fred Brooks, [*The Mythical Man-Month*](/blog/learning/the_mythical_man_month)
 
 If writing in our model of our native tongues requires "hundreds of mini decisions", imagine what happens when we try to skip directly to a foreign computational model without first distinguishing "clear, exact policies from the fuzzy ones."
 

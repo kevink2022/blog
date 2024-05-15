@@ -17,4 +17,4 @@ draft: false
 ### [Simplicity Matters](https://www.youtube.com/watch?v=rI8tNMsozo0) 
 A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren't vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.
 ### Related
-- [Simple Made Easy](/learning/simple_made_easy)
+- [Simple Made Easy](/blog/learning/simple_made_easy)

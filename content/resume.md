@@ -4,7 +4,7 @@ menu: main
 weight: 5
 ---
 # Resume
-[PDF Download](/docs/resume.pdf)
+[PDF Download](/blog/docs/resume.pdf)
 
 ---
 # Kevin Kelly
@@ -35,7 +35,7 @@ May 2022 -- August 2022
 - Maintained and updated Legacy **Linux Kernel Drivers**, adeptly diagnosing issues and analyzing Linux Kernel Source code to resolve bugs and implement driver updates.
 - Developed a **Python** tool for automated driver retrieval and testing from repositories, effectively identifying and addressing widespread bugs resulting from Kernel updates.
 - Diligently adhered to the comprehensive document control protocols required by ISO 9001 and AS9100 standards.
-- Successfully ported legacy ROM DOS manufacturing tests to a Python scripts for Linux, modernizing the PCB production testing process. 
+- Successfully ported legacy ROM DOS manufacturing tests to Python scripts for Linux, modernizing the PCB production testing process. 
 
 ---
 ## Projects
@@ -47,7 +47,7 @@ January 2024 -- Present
 - Built with **persistent data structures** and **functional programming principles** while still taking advantage of SwiftUI's powerful observation libraries using **Combine queues** for efficient, decoupled and reactive communication.
 - Utilizes a transaction based persistence system, allowing for users to roll back erroneous changes.
 - Thorough **unit testing**, often following **test driven design**, writing tests before the code.
-- Architecture and design decisions discussed in detail on my blog at [kevink2022.github.io/blog/tags/boomic/](/tags/boomic/)
+- Architecture and design decisions discussed in detail on my blog at [kevink2022.github.io/blog/tags/boomic/](/blog/tags/boomic/)
 #### [Channels](https://github.com/kevink2022/channels)
 *C, GDB, Valgrind, pthread, semaphores*
 January 2022 -- May 2022
@@ -60,12 +60,14 @@ January 2022 -- May 2022
 # What I am looking for in an organization
 I understand that in an ideal world, all organizations would follow software development principles and best practices. However, we live in a unideal world of capital, competition, deadlines, and security vulnerabilities. These *external pressures* often constrict an organizations choices. Time spent preparing for the far future is time wasted if the organization might cease to exist in the near future.
 
-However, most organizations that last will find themselves in periods where those external pressures subside, and then the *internal pressures*, explicit or not, drive the further direction of the organization. I firmly believe this is where organizations truly distinguish themselves, and by following strong principles, set themselves up for success. When the external pressures begin to ramp up, the organization that prepared in the past, learned from its previous mistakes, and made multiplicative process improvements, will have a lot more room to maneuver. Meanwhile, the organization ignores past mistakes, and focuses entirely on the next venture, will find itself completely constricted by external pressures, leading to at best an intense period of stress, and at worse, the collapse of the organization.
+However, most organizations that last will find themselves in periods where those external pressures subside, and then the *internal pressures* they control, conciously or not, drive the further direction of the organization. I firmly believe this is where organizations truly distinguish themselves, and by following strong principles, set themselves up for success. 
+
+When the external pressures begin to ramp up, the organization that prepared in the past, learned from its previous mistakes, and made multiplicative process improvements, will have a lot more room to maneuver. Meanwhile, the organization ignores past mistakes and focuses entirely on the next venture, will find itself completely constricted by external pressures, leading to at best an intense period of stress, and at worse, the collapse of the organization.
 
 I understand that external pressures can demand short-term thinking. But any professional relationship I enter with an organization that either explicitly encourages permanent short-term thinking, or even worse, doesn't understand the implicit effects of the internal pressures they unconsciously create, will not last.
 
 Some of the ways I think mature software organizations are built to last are:
-- Aggressive testing, where developers aren't [too reliant on QA](/learning/better_testing_worse_quality).
+- Aggressive testing, where developers aren't [too reliant on QA](/blog/learning/better_testing_worse_quality).
 - [Fast feedback loops](https://youtu.be/r2BFTXBundQ?t=503&si=QBm-rZdg97pn_Y2o) to avoid the pitfalls of rampant speculation.
 - Introspective, learning from past mistakes, and is willing to face and fix problems instead of avoiding them.
 - Proud of its most simple and readable code, and embarrassed by incidental complexity.

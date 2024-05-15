@@ -36,23 +36,23 @@ private func returnMultipleTimes() async throws {
 
 My first goal for Boomic was to simply load audio files from a local directory into a `Database` as `Song` objects, then load them from the database onto the UI. I needed some kind of `MediaFileInterface` to load audio files from a directory and extract their metadata into the `Song` objects. Thinking that the database was likely the only thing that needed to load files this way, as the rest of my app could just deal with `Song` objects, I went with a design like this:
 
-![Original Database with coupled file interface](/images/original_database.svg)
+![Original Database with coupled file interface](/blog/images/original_database.svg)
 
-It was after watching Rich Hickey's [Design, Composition, and Performance](/learning/design_composition_performance.md) that I realized what kind of mistake I was making with the database. 
+It was after watching Rich Hickey's [Design, Composition, and Performance](/blog/learning/design_composition_performance.md) that I realized what kind of mistake I was making with the database. 
 
 I thought that simply by using Swift's protocols, I was keeping these components decoupled. I could easily switch from a local to a remote directory with the same `MediaFileInterface` protocol. But I was still coupling the `Database` to the fact that it had to know where it was getting its `Song` objects from. This would've have flown under my radar, until I thought about Apple Music. A long-term goal of Boomic is to be able to sync your Apple Music library alongside your local library. Since I want to have the same tags and ratings for both Apple Music and local songs, I wanted to store them in the same database. Assuming I did that that now, the database would look like this:
 
-![Original Database with two coupled file interfaces](/images/original_database_expanded.svg)
+![Original Database with two coupled file interfaces](/blog/images/original_database_expanded.svg)
 
 I would need to edit the database itself, its public interface, and the repository that calls it. By just making the database aware of a protocol to get new songs, I was giving the database an extra responsibility: don't just store the songs, but get the new ones as well. Lets remove that separate responsibility and see what it looks like:
 
-![Update, decoupled database with separate file interface](/images/decoupled_database.svg)
+![Update, decoupled database with separate file interface](/blog/images/decoupled_database.svg)
 
 Now, the `Repository` can simply have two different functions for each different source. The `Database` itself can be designed in a much simpler, more generic manner, without worrying where it is getting new data from. More importantly, when I want to add the Apple Music support, I only have to change the app-specific `Repository`, instead of making my way down the stack, adjusting each component to fit the new use case. I simply a write a new composition of a new component, the `AppleMusicInterface` and an old one, the `Database`.
 
 ---
 ### Breaking it down: Composers and Instruments
-I really liked the general repository pattern, and felt it could be extended outside the realm of data operations. As I mentioned earlier, it was watching the aforementioned [Design, Composition, and Performance](/learning/design_composition_performance.md) when the value of the repository pattern really clicked. So, lets borrow some vocabulary (albeit in a slightly different way) and see how it feels:
+I really liked the general repository pattern, and felt it could be extended outside the realm of data operations. As I mentioned earlier, it was watching the aforementioned [Design, Composition, and Performance](/blog/learning/design_composition_performance.md) when the value of the repository pattern really clicked. So, lets borrow some vocabulary (albeit in a slightly different way) and see how it feels:
 
 - **Instruments:** Single responsibility, usually generic components.
 - **Composers**: Components that coordinate one or more instruments to achieve something specific.
@@ -115,7 +115,7 @@ To summarize, I think we can build the vast majority of what we create with gene
 ### In Practice
 Finally back to the app, what does Boomic look like today. I am still some time away from the MVP, and so plan on updating this part of the post down the road. Especially if (more likely when) I find I didn't have as complete of an understanding as I thought I had. But here is the current structure, still relatively flat but much, much less coupled then its predecessor:
 
-![boomic_architecture](/images/boomic_arc.svg)
+![boomic_architecture](/blog/images/boomic_arc.svg)
 
 - **`Repository`**: Composer of the data instruments, specifically for the UI.
 	- **`Transactor`**: Serially stores library transactions, and publishes a new `DataBasis` to reflect that transaction.
