@@ -21,6 +21,6 @@ Great introduction to many different programming concepts. Highly recommend watc
 ### [Why You Shouldn't Nest Your Code](https://www.youtube.com/watch?v=CFRhGnuXG-4)
 Highlights how simply limiting the amount you nest your code will force you to write better code. 
 ### [Don't Write Comments](https://www.youtube.com/watch?v=Bf7vDBBOBUA)
-In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].
+In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language](/blog/spoken_vs_programming_languages).
 ### [Dependency Injection, The Best Pattern](https://www.youtube.com/@CodeAesthetic/videos)
 Great visualization and introduction to the many strengths and benefits of dependency injection.

@@ -1,10 +1,24 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://kevink2022.github.io/blog/'
 languageCode = 'en-us'
 title = 'Kevin Kelly'
 theme = "hugo-bearcub"
 copyright = "Kevin Kelly (CC BY 4.0)"
 madeWith = "Made with [Bear Cub](https://github.com/clente/hugo-bearcub)"
 
+# enableRobotsTXT = true
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = false
+
 [params]
-  description = "Bear Cub Demo"
+  description = "Kevin Kelly's Personal Blog"
+  title = "Kevin Kelly"
   madeWith = "Made with [Bear Cub](https://github.com/clente/hugo-bearcub)"
+  favicon = "images/favicon.png"
+  images = ["images/sonotori.jpeg"]
+
+  [params.author]
+    name = "Kevin Kelly" 
+    email = "kevink2019@gmail.com"

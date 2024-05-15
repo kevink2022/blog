@@ -38,9 +38,9 @@ My first goal for Boomic was to simply load audio files from a local directory i
 
 ![Original Database with coupled file interface](/images/original_database.svg)
 
-It was after watching Rich Hickey's [Design, Composition, and Performance](https://www.youtube.com/watch?v=QCwqnjxqfmY) that I realized what kind of mistake I was making with the database. 
+It was after watching Rich Hickey's [Design, Composition, and Performance](/learning/design_composition_performance.md) that I realized what kind of mistake I was making with the database. 
 
-I thought that simply by using Swift's protocols, I was keeping these components decoupled. I could easily switch from a local to a remote directory with the same `MediaFileInterface` protocol. But I was still coupling the Database to the fact that it had to know where it was getting its `Song` objects from. This would've have flown under my radar, until I thought about Apple Music. A long-term goal of Boomic is to be able to sync your Apple Music library alongside your local library. Since I want to have the same tags and ratings for both Apple Music and local songs, I wanted to store them in the same database. Assuming I did that that now, the database would look like this:
+I thought that simply by using Swift's protocols, I was keeping these components decoupled. I could easily switch from a local to a remote directory with the same `MediaFileInterface` protocol. But I was still coupling the `Database` to the fact that it had to know where it was getting its `Song` objects from. This would've have flown under my radar, until I thought about Apple Music. A long-term goal of Boomic is to be able to sync your Apple Music library alongside your local library. Since I want to have the same tags and ratings for both Apple Music and local songs, I wanted to store them in the same database. Assuming I did that that now, the database would look like this:
 
 ![Original Database with two coupled file interfaces](/images/original_database_expanded.svg)
 
@@ -52,7 +52,7 @@ Now, the `Repository` can simply have two different functions for each different
 
 ---
 ### Breaking it down: Composers and Instruments
-I really liked the general repository pattern, and felt it could be extended outside the realm of data operations. As I mentioned earlier, it was watching the aforementioned [Design, Composition, and Performance](https://www.youtube.com/watch?v=QCwqnjxqfmY) when the value of the repository pattern really clicked. So, lets borrow some vocabulary (albeit in a slightly different way) and see how it feels:
+I really liked the general repository pattern, and felt it could be extended outside the realm of data operations. As I mentioned earlier, it was watching the aforementioned [Design, Composition, and Performance](/learning/design_composition_performance.md) when the value of the repository pattern really clicked. So, lets borrow some vocabulary (albeit in a slightly different way) and see how it feels:
 
 - **Instruments:** Single responsibility, usually generic components.
 - **Composers**: Components that coordinate one or more instruments to achieve something specific.
@@ -105,7 +105,7 @@ let newFiles = FileInterface().all(["mp3", "flac"], ignoring: knownFiles)
 let newSongs = newFiles.map { Song(fromFile: $0) }
 ```
 
-For me, it really is that reframing that can bring a lot of value. I was comfortable calling the `MediaFileInterface` a simple, single responsibility component that only had one public function, and it was only 60 lines. But it was a specific component I built for a specific purpose. When I want to play guitar in a new key, do I buy a whole new guitar? No, I take my existing guitar, and just put on, *or compose it with,* a capo!
+For me, it really is that reframing that can bring a lot of value. I was comfortable calling the `MediaFileInterface` a simple, single responsibility component that only had one public function. And it was only 60 lines. But it was a specific component I built for a specific purpose. When I want to play guitar in a new key, do I buy a whole new guitar? No, I take my existing guitar, and just put on, *or compose it with,* a capo!
 
 So, after reframing the question, I was not comfortable calling the `MediaFileInterface` a good instrument. Which led me to asking "Could this be composed of simpler instruments?" and "Could this be more generic?" and ended with me building the new, more generic `FileInterface`, which I am already using in another part of the `Repository`.
 
@@ -133,4 +133,4 @@ Finally back to the app, what does Boomic look like today. I am still some time 
 - Have the `Player` directly access the `Repository` instead of just sharing the `ImageCache` so it can respond to `DataBasis` updates.
 - Look into making the `QueryEngine`, `MetadataLoader`,  `Engine`, and `Queue` classes more generic. They all currently rely on this app's custom data types (even if by name only), such as `Song` or `DataBasis` objects. From the instrument/composer point of view, this is generally bad practice, though may be unavoidable in certain cases.
 
-There is a lot more work to do to make the immutable `DataBasis` pattern work with Swifts observation frameworks, and make the UI reactive to specific changes. I have reflected on whether keeping the pattern is worth it and have decided to continue it. More on why I am storing data this way in a future blogpost.
+There is a lot more work to do to make the immutable `DataBasis` pattern work with Swifts observation frameworks, and make the UI reactive to specific changes. I have reflected on whether keeping the pattern is worth it and have decided to continue it. More on that in a future post.

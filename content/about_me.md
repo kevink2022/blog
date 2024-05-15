@@ -4,7 +4,7 @@ menu: main
 weight: 6
 ---
 # About Me
-I'm a Software Engineer from the Philadelphia area who went to Penn State (very unique, I know), who fell in love with programming when my awesome math teacher showed the class our calculators could write programs. Before long, I would write the program that would do my homework that night before class ended (thank you again, Mrs. Zapor).
+I'm a Software Engineer from the Philadelphia area who went to Penn State (very unique, I know), who fell in love with programming in middle school when my awesome math teacher showed the class our calculators could write programs. Before long, I would write the program that would do that night's homework before class ended (thank you again, Mrs. Zapor).
 
 Outside of that, growing up I was very into sports (go birds), which culminated with me playing Volleyball in high school (go crusaders). While in high school, I fell in love with art (largely thanks to [Victory Fire](https://www.deviantart.com/sulfurbunny/gallery/36148502/victory-fire-book-one)) and music, which led me to learning how to draw and picking the piano up again. Though, shortly after drawing whats probably my [best piece](/images/ben_simmons.JPG), I learned I have [aphantasia](https://en.wikipedia.org/wiki/Aphantasia), and have focused my creative energy more into creative writing as of late.
 
