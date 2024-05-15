@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>It-Revolution on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/it-revolution/</link>
+    <description>Recent content in It-Revolution on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Wed, 15 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/it-revolution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Podcast] Dr. Steven Spear on IT Revolution</title>
+      <link>http://localhost:1313/learning/steven_spear_it_revolution/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/steven_spear_it_revolution/</guid>
+      <description>Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr. Steve Spear&amp;rsquo;s 2019 and 2020 DevOps Enterprise Summit Talks on Rapid, Distributed, Dynamic Learning. Episode 7: The Topography of Problems and the Importance of Distributed Problem Solving (Part 2) </description>
+      <content:encoded><![CDATA[<h3 id="episode-5-the-pursuit-of-perfection-dominant-architectures-and-dynamics-part-1httpsitrevolutioncompodcastthe-idealcast-episode-5"><a href="https://itrevolution.com/podcast/the-idealcast-episode-5/">Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1)</a></h3>
+<h3 id="episode-6-dispatch-from-the-scenius-dr-steve-spears-2019-and-2020-devops-enterprise-summit-talks-on-rapid-distributed-dynamic-learninghttpsitrevolutioncompodcastthe-idealcast-episode-6"><a href="https://itrevolution.com/podcast/the-idealcast-episode-6/">Episode 6: (Dispatch from the Scenius) Dr. Steve Spear&rsquo;s 2019 and 2020 DevOps Enterprise Summit Talks on Rapid, Distributed, Dynamic Learning.</a></h3>
+<h3 id="episode-7-the-topography-of-problems-and-the-importance-of-distributed-problem-solving-part-2httpsitrevolutioncompodcastthe-idealcast-episode-7"><a href="https://itrevolution.com/podcast/the-idealcast-episode-7/">Episode 7: The Topography of Problems and the Importance of Distributed Problem Solving (Part 2)</a></h3>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

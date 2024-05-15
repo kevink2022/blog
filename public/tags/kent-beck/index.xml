@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kent-Beck on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/kent-beck/</link>
+    <description>Recent content in Kent-Beck on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Sat, 18 Apr 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/kent-beck/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Blog] Design is an Island</title>
+      <link>http://localhost:1313/learning/design_is_an_island/</link>
+      <pubDate>Sat, 18 Apr 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_is_an_island/</guid>
+      <description>Design is an Island Some of the most impactful learning materials aren&amp;rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</description>
+      <content:encoded><![CDATA[<h3 id="design-is-an-islandhttpstidyfirstsubstackcompdesign-is-an-island"><a href="https://tidyfirst.substack.com/p/design-is-an-island">Design is an Island</a></h3>
+<p>Some of the most impactful learning materials aren&rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

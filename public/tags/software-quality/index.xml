@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Software-Quality on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/software-quality/</link>
+    <description>Recent content in Software-Quality on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Mon, 29 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/software-quality/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How learning Japanese has changed the way I think about programming languages.</title>
+      <link>http://localhost:1313/blog/spoken_vs_programming_languages/</link>
+      <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/spoken_vs_programming_languages/</guid>
+      <description>I was having a conversation with a friend the other day, who like many people that get paid to write code, has no background in computer science. They were talking about how their employer wanted them to learn C# (they had mostly been using python) for a potential .NET app, and so they had paid for a C# course.&#xA;While this makes sense as one of the quickest ways to get up to speed with a certain language, I recommended they pay attention to and learn the fundamental constructs that C# shares with Python, and where it differs.</description>
+      <content:encoded><![CDATA[<p>I was having a conversation with a friend the other day, who like many people that get paid to write code, has no background in computer science. They were talking about how their employer wanted them to learn C# (they had mostly been using python) for a potential .NET app, and so they had paid for a C# course.</p>
+<p>While this makes sense as one of the quickest ways to get up to speed with a certain language, I recommended they pay attention to and learn the fundamental constructs that C#  shares with Python, and where it differs.</p>
+<p>Most professional programmers and software engineers have used, or at least dabbled with, many different languages throughout their careers, to the point where switching to another language becomes almost trivial. We can design systems with these fundamental constructs, then implement them in these different languages.</p>
+<p>Once we obtain that deep understanding of fundamental constructs, we can become very confident and proud of our ability to &rsquo;think in computer.&rsquo; Which is essential, we are writing for computers after all. But we often fail to see the drawbacks in limiting our thinking like that. I knew that we should strive for clean, &lsquo;readable&rsquo; code, but I didn&rsquo;t truly understand the essence of that goal until I tried to think in another spoken language.</p>
+<hr>
+<h3 id="to-understand-or-to-be-understood">To understand or to be understood.</h3>
+<p>The Japanese word that inspired this line of thinking was 分かる (pronounced <em>wakaru</em>), which is a verb that <em>translates</em> to &rsquo;to understand.&rsquo; I had learned it a few years back in college in preparation to study abroad, but covid had other plans for my time in college. Now as a graduate, I decided to start learning Japanese again because it was quite fun, and I no longer in a rush to learn it all within two years.</p>
+<p>One of the many details I often brushed pass the first time around whether verbs were <em>intransitive</em> or <em>transitive</em>, which describes whether or not the verb is performed by the subject (intransitive) on itself or on a direct object (transitive). Basically, in the sentence &lsquo;<em>I</em> am running,&rsquo; running is intransitive, because I, the subject, is what is running. While in the sentence &lsquo;I am running the <em>dishwasher,</em>&rsquo; running is transitive, because I, the subject, am performing the verb on the dishwasher, the direct object.</p>
+<p>To my horror, I realized 分かる was intransitive. In my many conversations (mostly with myself, I have been terrified to make this exact kind of mistake online) I have had in Japanese these last few years, I have been using 分かる wrong, as a transitive verb.</p>
+<p>The <a href="https://www.wanikani.com/vocabulary/%E5%88%86%E3%81%8B%E3%82%8B">Wanikani explanation</a> of the word says it best, so I&rsquo;ll just quote it in here:</p>
+<blockquote>
+<p>This word means to <em>understand</em>, which might surprise you if you remember that the kanji 分 means <em>part</em>. Think of it this way: to understand something you have to break it down into its parts to see how it works.</p>
+<p>Watch out, though, because whereas in English you understand something, in Japanese the thing you understand is the grammatical subject (it&rsquo;s doing the action). So, a more literal meaning for this is <em>to be understandable</em>. In other words, there&rsquo;s no object, and 分かる is intransitive, meaning it happens on its own. The かる ending is a hint, because verbs with かる as okurigana (kana added to the kanji) are usually intransitive.</p>
+</blockquote>
+<p>To me, this is a completely different <em>mental model</em>, almost a different way of thinking. Lets borrow that word <em>model</em> and take a look at at what I mean. If I wanted to say &lsquo;I understand that book&rsquo; in Japanese, I would say「その本が分かる.」Lets break that down real quick:</p>
+<table>
+<thead>
+<tr>
+<th>&lsquo;Word&rsquo;</th>
+<th>Pronounciation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>その</td>
+<td>sono</td>
+<td>that (thing)</td>
+</tr>
+<tr>
+<td>本</td>
+<td>hon</td>
+<td>book</td>
+</tr>
+<tr>
+<td>が</td>
+<td>ga</td>
+<td>subject marker, marking その本 as the subject</td>
+</tr>
+<tr>
+<td>分かる</td>
+<td>wakaru</td>
+<td>to be understandable</td>
+</tr>
+</tbody>
+</table>
+<p>So then, lets take a look at how the models differ in each language:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th><em>Model</em></th>
+<th>In a sentance</th>
+<th>Translation of the <em>model</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To understand</td>
+<td>To understand</td>
+<td>I understand that book</td>
+<td>その本を分かる (grammatically incorrect)</td>
+</tr>
+<tr>
+<td>分かる</td>
+<td><em>To be understandable</em></td>
+<td>その本が分かる</td>
+<td>That book is understandable.</td>
+</tr>
+</tbody>
+</table>
+<p>The only difference between the correct sentence, and the one I would&rsquo;ve said, is that I would have replaced が, the &lsquo;subject marker,&rsquo; with を, the &lsquo;direct object marker.&rsquo; Instead of the book, I as the speaker would implicitly be the subject of that sentence. Which, of course, is a grammatically incorrect use of the Japanese verb, but makes perfect sense to me if I am using my English model. Now, when I do my Wanikani flashcards, I always try and take care to answer with the meaning that&rsquo;s the closest <em>model</em> to the word, which is not necessarily the closest <em>translation.</em></p>
+<p>This fundamental difference in the modeling everyday situations is reflected even stronger in the closest translations of the words &rsquo;to like&rsquo; and &rsquo;to want,&rsquo; which are 好き (pronounced suki) and 欲しい (pronounced hoshii) respectively. You might be thinking, &ldquo;Are they not just like 分かる in the previous example, where they&rsquo;re just intransitive verbs?&rdquo; Nope, they&rsquo;re <em><strong>adjectives</strong></em>.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th><em>Model</em></th>
+<th>In a sentance</th>
+<th>Translation of the <em>model</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To like</td>
+<td>To like</td>
+<td>I like that book</td>
+<td>その本を好きだ (<em>very</em> grammatically incorrect)</td>
+</tr>
+<tr>
+<td>好き</td>
+<td>is likeable</td>
+<td>その本が好きだ</td>
+<td>That book is likeable.</td>
+</tr>
+</tbody>
+</table>
+<p>I absolutely could not wrap my head around this general model when I first learned it. When we use adjectives in English, we are generally either saying n objective fact, or we preface our subjective opinions with the fact that they are, well, opinions. I mean, if you were struggling to grasp some LeetCode problem and asked me for help, and I walked over and said &lsquo;That problem is understandable.&rsquo; You might think I&rsquo;m insulting you!</p>
+<p>But Japanese is a <em>heavily</em> context based language. So when I say a thing is understandable, it is generally understood to be my point of view of the situation, not a comment on whether the thing is easy to understand.</p>
+<hr>
+<h3 id="but-what-does-this-have-to-do-with-programming-languages">But what does this have to do with programming languages?</h3>
+<p>I think the weight of the word <em>language</em> in programming <em>language</em> is often lost on us. Just like how I have to rewire my brain to think in a Japanese model, I had to do the same when I was first learning to program, just in a model of computation. Thinking in variables, if/else blocks, and loops. But unlike when I use my English model in a Japanese sentence, using an unclear or incorrect model to solve a problem might not just be harmless little grammar mistakes, but could have real world consequences. Even if you&rsquo;re confident in you and your team&rsquo;s ability to &rsquo;think in computer,&rsquo; you should have no faith in their ability to &lsquo;<em>communicate</em> in computer.&rsquo; Similar to Japanese, programming languages themselves can be dangerously context dependent, and far too much can get lost in translation.</p>
+<p>Think back to the explanation of those Japanese sentences. Presuming you&rsquo;re a native English speaker, to understand the meaning of the Japanese sentences, you needed to know both:</p>
+<ul>
+<li>How the sentence was built via the <em>Japanese model.</em></li>
+<li>The message being communicated via the <em>English translation.</em></li>
+</ul>
+<p>I think the same thing is going on whenever we write programs. We build our code &lsquo;sentences&rsquo; in a <em>computer model</em> to be executed. But the computer isn&rsquo;t the only one who needs to understand our code: people need to as well.</p>
+<p>So, we need to focus on being explicit in the intention of our code by including translation, the actual meaning we&rsquo;re trying to communicate, <em>within</em> the code.</p>
+<p>Remember the mistranslation that can occur from earlier if we tried to communicate with a different model:</p>
+<ul>
+<li>&ldquo;That problem is understandable.&rdquo;</li>
+<li><em>(Is he insulting me?)</em> &ldquo;I think its pretty difficult.&rdquo;</li>
+</ul>
+<p>These same mistranslations can occur when we try and communicate in computer models. A dead simple example (imagine this is an in-house sleep with no documentation):</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>sleep(<span style="color:#ae81ff">2</span>) <span style="color:#75715e">// minutes, seconds, microseconds? you might not have the context, but the computer knows.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> SECONDS = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>sleep(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>SECONDS) <span style="color:#75715e">// this is the exact same model with an included translation</span></span></span></code></pre></div><p>A little anecdote I like to remember this concept by, when I went to sports camps as a kid, something we were always told was to &ldquo;stay on the balls of your feet.&rdquo; I mistranslated their message of &ldquo;keep your weight forward&rdquo; as &ldquo;keep those heels off the ground buddy.&rdquo; I have <em>massive</em> calves now.</p>
+<p>Whats far more likely then a simple mistranslation, and what I&rsquo;m sure you&rsquo;ve encountered many more times, is when there is <em>nothing</em> to translate. When your reading some code and you sit there, thinking:</p>
+<blockquote>
+<p>What on <em>earth</em> were they trying to do here? What could their intention possibly have been?</p>
+</blockquote>
+<p>At this point, all bets are off, who knows if your going to translate that code correctly.</p>
+<p>I could take the time to come up with some more examples, but I would highly recommend taking the time to watch these two <a href="/learning/code_aesthetic">CodeAesthetic</a> videos. Their examples are much more engaging then what I&rsquo;d come up with, and I think are both videos getting after this core idea. In all of the examples they give, notice how the function (the model) of the code doesn&rsquo;t change at all, but the added context (the translation) helps make the code more understandable and maintainable.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=-J3wNP6u5YU">Naming Things in Code (7:24)</a></li>
+<li><a href="https://www.youtube.com/watch?v=Bf7vDBBOBUA">Don&rsquo;t Write Comments (5:54)</a></li>
+</ul>
+<p>To take this one last step forward: when we fail to write our translations down, what we end up writing might not even match what we had in our heads. While thought is <a href="/blog/knowing_vs_understanding">deep and intricate</a>, its also a by nature a <a href="/learning/language_is_a_bottleneck">lossy medium</a>. Don&rsquo;t add more loss for no reason.</p>
+<blockquote>
+<p>&ldquo;Writing the decisions down is essential. Only when one writes do the gaps appear and the inconsistencies protrude. The act of setting turns out to require hundreds of mini decisions, and if the existence of these that distinguishes clear, exact policies from the fuzzy ones.&rdquo;</p>
+<p>&mdash; Fred Brooks, <a href="/learning/the_mythical_man_month"><em>The Mythical Man-Month</em></a></p>
+</blockquote>
+<p>If writing in our model of our native tongues requires &ldquo;hundreds of mini decisions&rdquo;, imagine what happens when we try to skip directly to a foreign computational model without first distinguishing &ldquo;clear, exact policies from the fuzzy ones.&rdquo;</p>
+<hr>
+<h3 id="to-summarize">To Summarize:</h3>
+<ul>
+<li>We are fundamentally translating from a human language mental model of the computational, digital model when we write software.</li>
+<li>We should always be as explicit as possible with our intentions when we write software, making clear our <em>translations</em> of the <em>models</em>, being very specific so we can:
+<ul>
+<li>Better communicate our intentions to our teams (and our future selves).</li>
+<li>Confirm what we write matches our original intention.</li>
+<li>Encapsulate those models into simple components we can think about in a whole system.</li>
+</ul>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Paper] Better Testing, Worse Quality?</title>
+      <link>http://localhost:1313/learning/better_testing_worse_quality/</link>
+      <pubDate>Sat, 01 Dec 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/better_testing_worse_quality/</guid>
+      <description>Better Testing, Worse Quality? Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</description>
+      <content:encoded><![CDATA[<h3 id="better-testing-worse-qualityhttpsciteseerxistpsuedudocumentrepidrep1typepdfdoi309d45cb667d5ce43365bc30a5e82f118f42b4d0"><a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=309d45cb667d5ce43365bc30a5e82f118f42b4d0">Better Testing, Worse Quality?</a></h3>
+<p>Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Podcast] The Idealcast with Gene Kim</title>
+      <link>http://localhost:1313/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
+      <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
+<p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>
+<h3 id="elisabeth-hendrickson">Elisabeth Hendrickson</h3>
+<ul>
+<li>Episode 3: Achieving Better Outcomes through Structure</li>
+<li>Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&rsquo;s DevOps Enterprise Summit Presentations</li>
+</ul>
+<h3 id="dr-steven-spear">Dr. Steven Spear</h3>
+<ul>
+<li>Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1)</li>
+<li>Episode 6: (Dispatch from the Scenius) Dr. Steve Spear&rsquo;s 2019 and 2020 DevOps Enterprise Summit Talks on Rapid, Distributed, Dynamic Learning.</li>
+<li>Episode 7: The Topography of Problems and the Importance of Distributed Problem Solving (Part 2)</li>
+</ul>
+<h3 id="dr-ron-westrum">Dr. Ron Westrum</h3>
+<ul>
+<li>Episode 17: The Sociology and Typologies of Organizations, and Technical Maestros with Dr. Ron Westrum</li>
+<li>Episode 18: Patterns of Generative Cultures: How They Can Be Destroyed and the Importance of Trust with Dr. Ron Westrum</li>
+</ul>
+<h3 id="scott-havens">Scott Havens</h3>
+<ul>
+<li>Episode 22: (Dispatch from the Scenius) Fabulous Fortunes, Fewer Failures, and Faster Fixes from Functional Fundamentals</li>
+<li>Episode 23: Simplifying The Inventory Management Systems at the World’s Largest Retailer Using Functional Programming Principles</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

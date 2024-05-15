@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Quotes on Kevin Kelly</title>
+    <link>http://localhost:1313/quotes/</link>
+    <description>Recent content in Quotes on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>John Doe (CC BY 4.0)</copyright>
+    <atom:link href="http://localhost:1313/quotes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quotes</title>
+      <link>http://localhost:1313/quotes/quotes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/quotes/quotes/</guid>
+      <description>&amp;ldquo;Familiarity hides complexity.&amp;rdquo;&#xA;&amp;mdash; Rich Hickey&#xA;&amp;ldquo;Civilization advances by extending the number of important operations which we can perform without thinking about them.&amp;rdquo;&#xA;&amp;mdash; Alfred North Whitehead&#xA;&amp;ldquo;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&amp;rdquo;&#xA;&amp;mdash; Martin Fowler</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>&ldquo;Familiarity hides complexity.&rdquo;</p>
+<p>&mdash; Rich Hickey</p>
+</blockquote>
+<blockquote>
+<p>&ldquo;Civilization advances by extending the number of important operations which we can perform without thinking about them.&rdquo;</p>
+<p>&mdash; Alfred North Whitehead</p>
+</blockquote>
+<blockquote>
+<p>&ldquo;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&rdquo;</p>
+<p>&mdash; Martin Fowler</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

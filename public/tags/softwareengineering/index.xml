@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SoftwareEngineering on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/softwareengineering/</link>
+    <description>Recent content in SoftwareEngineering on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/softwareengineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/blog/how-learning-japanese-has-changed-the-way-i-think-about-programming-languages./</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/how-learning-japanese-has-changed-the-way-i-think-about-programming-languages./</guid>
+      <description>%% get rid of most this mess in the beginning also mention how i am generally trying to use &amp;rsquo;to be X&amp;rsquo; and &amp;rsquo;to X&amp;rsquo; when possible, as it aligns my english definition closer to the actual Japanese meaning (not just in remembering transitives, but also in the fact that those words are often thought about as the -same word-). I think we need to strive to do that the opposite way in our code.</description>
+      <content:encoded><![CDATA[<p>%%
+get rid of most this mess in the beginning
+also mention how i am generally trying to use &rsquo;to be X&rsquo; and &rsquo;to X&rsquo; when possible, as it aligns my english definition closer to the actual Japanese meaning (not just in remembering transitives, but also in the fact that those words are often thought about as the -same word-). I think we need to strive to do that the opposite way in our code.
+%%</p>
+<p>I am currently embarking on my <em>third</em> attempt to get thought <a href="">Wanikani&rsquo;s</a> 60 levels, but now that I&rsquo;ve graduated college and am not being rushed by a looming study abroad trip (thats going to get cancelled due to covid anyway), I&rsquo;ve decided to take my time and finish what I&rsquo;ve started. While taking my time, I realized a lot of the new ways I was thinking about Japanese words and grammer can be applied to programming languages, and help me write better code.</p>
+<p>The vocab lessons are a little long, so feel free to skip to the programming languages insights.</p>
+<hr>
+<h1 id="this-moon-or-that-moon">This moon or that moon.</h1>
+<p>The vocab word that inspired me to actually sit down and write this out was 今月 (kongetsu), which translates to &rsquo;this month.&rsquo; Its pretty intuitive if you remember that 今 means &rsquo;now&rsquo; and 月 means &lsquo;moon,&rsquo; which makes a lot of sense as a symbol for month.</p>
+<p>It wasn&rsquo;t until a few flashcards later when 今 came up and I instinctively typed &rsquo;this&rsquo; instead of &rsquo;now.&rsquo; Luckily, I caught myself, but it really made me stop and think about the difference between the <em>translation</em> of the word and what I&rsquo;ll refer to as the <em>idea</em> of the word. Sort of the &lsquo;mental model&rsquo; a native speaker might have, or the most direct translation of that mental model in English.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This month</td>
+<td>This month</td>
+</tr>
+<tr>
+<td>今月</td>
+<td><em>Now month</em></td>
+</tr>
+<tr>
+<td>Now, not only is this nitpicking, but its likely wrong. The words for this are これ (kore) and この (kono), which sound very similar to &lsquo;kon&rsquo; in &lsquo;kongetsu.&rsquo; But its the word that made me think a little harder about the next word&hellip;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="to-understand-or-to-be-understood">To understand or to be understood</h1>
+<p>The vocab word that &lsquo;planted the seed&rsquo; that sprouted into this post was 分かる (wakaru), which is a verb that translates to &rsquo;to understand.&rsquo; This is a word I certainly didn&rsquo;t forget in the last few years. But one of the many details I often forgot the first times around was <em>intransitive</em> vs <em>transitive</em> verbs, which describes whether or not the verb is performed by the subject (intransitive) or on the direct object (transitive) by a subject. And to my horror, I realized 分かる was intransitive*. In my many conversations (mostly with myself) I have had in Japanese these last few years, I have been using 分かる wrong, as a transitive verb.</p>
+<p>The <a href="https://www.wanikani.com/vocabulary/%E5%88%86%E3%81%8B%E3%82%8B">Wanikani explanation</a> of the word says it best, so I&rsquo;ll just quote it in here:</p>
+<blockquote>
+<p>This word means ==to understand==, which might surprise you if you remember that the kanji 分 means ==part==. Think of it this way: to understand something you have to break it down into its parts to see how it works.</p>
+</blockquote>
+<blockquote>
+<p>Watch out, though, because whereas in English you understand something, in Japanese the thing you understand is the grammatical subject (it&rsquo;s doing the action). So, a more literal meaning for this is ==to be understandable==. In other words, there&rsquo;s no object, and 分かる is intransitive, meaning it happens on its own. The かる ending is a hint, because verbs with かる as okurigana (kana added to the kanji) are usually intransitive.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Idea</th>
+<th>In a sentance</th>
+<th>Direct translation of the <em>idea</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To understand</td>
+<td>To understand</td>
+<td>I understand that book</td>
+<td>その本を分かる (Grammatically incorrect)</td>
+</tr>
+<tr>
+<td>分かる</td>
+<td><em>To be understandable</em></td>
+<td>その本が分かる</td>
+<td>That book is understandable.</td>
+</tr>
+<tr>
+<td>Breaking down the sentence:</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>&lsquo;Word&rsquo;</th>
+<th>Pronounciation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>その</td>
+<td>sono</td>
+<td>that</td>
+</tr>
+<tr>
+<td>本</td>
+<td>hon</td>
+<td>book</td>
+</tr>
+<tr>
+<td>が</td>
+<td>ga</td>
+<td>subject marker</td>
+</tr>
+<tr>
+<td>分かる</td>
+<td>wakaru</td>
+<td>to be understandable</td>
+</tr>
+<tr>
+<td>The &lsquo;subject marker&rsquo;, が, is a particle that &lsquo;marks&rsquo; the preceding clause as the subject of the sentence. So その本, or &rsquo;that book&rsquo; is the subject of sentence.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The only difference between the correct sentence, and the sentence I would&rsquo;ve said, is that I would have replaced が, the &lsquo;subject marker,&rsquo; with を, the &lsquo;direct object marker.&rsquo; Instead of the book, I as the speaker am implicitly the subject of the sentence.</p>
+<p>At the end of the day, because I wasn&rsquo;t thinking in Japanese, but just applying my native English mental model derived from the translation, not the core <em>idea</em>, I made a mistake.</p>
+<blockquote>
+<p>* For all you Japanese speakers who think I am dumb, 正しいです, and I now know that most -aru verbs are intransitive while -eru verbs are transitive. Though, if you have any other helpful tips like that I&rsquo;d be happy to hear them!</p>
+</blockquote>
+<hr>
+<h1 id="to-desire-or-to-be-desirable">To desire or to be desirable</h1>
+<p>The first real mental model curveball a native English speaker will have to wrangle with when learning Japanese are the words for &rsquo;to like&rsquo; and &rsquo;to want,&rsquo; which translate to 好き (suki) and 欲しい (hoshii) respectively. So, you the clever reader might be thinking, &ldquo;Are they not just like 分かる in the previous example, where they&rsquo;re just intransitive verbs?&rdquo; Nope, they&rsquo;re <em><strong>adjectives</strong></em>.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Idea</th>
+<th>In a sentance</th>
+<th>Direct translation of the <em>idea</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To like</td>
+<td>To like</td>
+<td>I like that book</td>
+<td>その本を好きだ (Very grammatically incorrect)</td>
+</tr>
+<tr>
+<td>好き</td>
+<td>is likeable</td>
+<td>その本が好きだ</td>
+<td>That book is likeable.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>I absolutely could not wrap my head around this concept when I first learned it. When we use adjectives, we are generally either saying an indisputable fact, or we preface our opinions with the fact that they are, well, opinion. (or that subjective, and not objective).</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Not only that, while those are the closest direct translations to those individual words, they aren&rsquo;t the most commonly used phrases when trying to get those ideas across. Generally, the basic adjective いい (ii, or just pronouncing the letter &rsquo;e&rsquo;), which translates to good, is used more often to say you like something (in fact, 好き can be a lot stronger). And the -たい (tai) verb conjugation is most often used to say you want to do said verb, which lines up a lot closer to our version of want (think how often you use want to describe the want to <em>do</em> something). But, if I stopped at looking up the words, then applied my english mental model, I would, well, sound like a foreigner who hasn&rsquo;t the basic understanding of the language.</p>
+<hr>
+<h1 id="get-to-the-point-old-man">Get to the point, old man</h1>
+<p>So, what does all this have to programming languages? I think the word <em>language</em> in programming <em>language</em> is underrated. Just like we use our human language to communicate our human idea to other humans, we use our programming languages to communicate our human idea to machines. And just how our human languages affect our mental model of the world, the programming languages we use, and <em>think in</em>, affect our mental model and how we solve problems.</p>
+<hr>
+<h2 id="programming-languages-affect-the-way-we-think-about-model-and-solve-problems">Programming Languages affect the way we think about, model, and solve problems.</h2>
+<p>Whether we realize it or not, the programming languages we learn, use, and <em>like to think in</em> affect the way we think about, model, and solve problems.</p>
+<p>I have been mainly using swift on my projects, while using SQL and VB (blegh) in my day job. I have often found myself rewriting some of the most egregious VB we have in swift to understand it better, partly because I have become more accustomed to <em>thinking</em> in swift. I&rsquo;ll often make 2 passes, one where I am just simplifying (de-nesting, extracting, making some extra constants, etc.), and then another where I really <em>translate</em> my model of the problem into swift, using some of its better supported language features like its powerful closures.</p>
+<p>And it really does remind me of translating things between English and Japanese. This is how we would say it in VB, while this is how it would more likely be said in Swift.</p>
+<p>This also applies to the code we read. One of the best ways to learn how to write in a language is to read that language. But, the concept of garbage in, garbage out still applies.</p>
+<p>An example that stands out is when a coworker asked me to help him with a SQL query he was working on. We both had very little prior SQL experience, both under a year, and I was just starting to learn to use and think with CTEs. I liked to show coworkers how problems could often be solved in a simpler way using them. He was trying to get a two account types of the same profile in the same table. So the table looked sort of like this:</p>
+<table>
+<thead>
+<tr>
+<th>profile_id</th>
+<th>account_type</th>
+<th>account_number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>a</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>1</td>
+<td>b</td>
+<td>23456</td>
+</tr>
+<tr>
+<td>2</td>
+<td>a</td>
+<td>34567</td>
+</tr>
+<tr>
+<td>2</td>
+<td>b</td>
+<td>45678</td>
+</tr>
+<tr>
+<td>3</td>
+<td>a</td>
+<td>56789</td>
+</tr>
+<tr>
+<td>3</td>
+<td>b</td>
+<td>67890</td>
+</tr>
+</tbody>
+</table>
+<p>And he wanted this result:</p>
+<table>
+<thead>
+<tr>
+<th>profile_id</th>
+<th>account_a_number</th>
+<th>account_b_number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>12345</td>
+<td>23456</td>
+</tr>
+<tr>
+<td>2</td>
+<td>34567</td>
+<td>45678</td>
+</tr>
+<tr>
+<td>3</td>
+<td>56789</td>
+<td>67890</td>
+</tr>
+</tbody>
+</table>
+<p>Using CTEs wasn&rsquo;t necessary here, but I wanted to demonstrate them to him. So I wrote this monstrosity:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>;<span style="color:#66d9ef">with</span> accounts <span style="color:#66d9ef">as</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">select</span> 
+</span></span><span style="display:flex;"><span>		profile_id
+</span></span><span style="display:flex;"><span>		, account_type
+</span></span><span style="display:flex;"><span>		, account_number
+</span></span><span style="display:flex;"><span>)</span></span></code></pre></div><p>%% i am going to stop here, cause this feels too long on this example, and its not even that good an example. %%</p>
+<p>%%
+Things I wanna hit this section</p>
+<ul>
+<li>programming languages affect our mental models, and how we approach problems
+<ul>
+<li>after C, pointers and locks</li>
+<li>after swift, async await and closures</li>
+<li>after fast sql, a poor solution lol</li>
+</ul>
+</li>
+<li>You carry these mental models into other languages and situations, even when the language isn&rsquo;t designed for that, and/or that model isnt the best solution for the problem
+<ul>
+<li>The poor fast sql solution</li>
+</ul>
+</li>
+<li>learning not just new languages, but new paradigms is essential. being able to weigh the pros and cons of different model is what will make you an expert. when we get too comfortable in a mental model, other perfectly reasonable, and often better mental models will become foreign to us.
+<ul>
+<li>mention the quote from [[We still dont know how to compute]]?? About the pain of writing a device driver in a functional language</li>
+</ul>
+</li>
+</ul>
+<p>Notes</p>
+<ul>
+<li>Too much babbling about my job, not enough real world examples. This might need to wait until I actually learn and do something in clojure.
+%%</li>
+</ul>
+<hr>
+<h2 id="its-harder-to-think-in-computer-then-we-like-to-admit-and-nearly-impossible-to-communicate">Its harder to think in &lsquo;computer&rsquo; then we like to admit. And nearly impossible to communicate.</h2>
+<p>We software engineers pride ourselves in how well we can understand the languages computers speak. Well, usually the high level languages we use to communicate with computers. But they often don&rsquo;t go high enough.</p>
+<p>I want to argue that computers speak a completely different language in the traditional sense of a language. At the lowe</p>
+<p>%%
+Things I wanna hit this section</p>
+<ul>
+<li>Interpretation can break down &ldquo;the balls of your feet&rdquo; when i always stood on the balls</li>
+</ul>
+<p>%%</p>
+<hr>
+<h2 id="we-think-in-our-native-tongues-and-problem-solve-first-with-our-built-up-intuition-why-not-code-in-that-language">We think in our native tongues, and problem solve first with our built up intuition. Why not code in that language?</h2>
+<p>I want to make the argument that one of the best ways to write clean, understandable software is to write it with the goal of keeping as close to our native tongue language as possible. As close to how humans think.</p>
+<p>As discussed previously, we already have high level languages that bring that language of computers closer to our own languages and way of thinking. However, we all to often make the mistake of stopping there.</p>
+<p>These high level languages are still fundamentally computer languages. We are creating and manipulation objects, or sending data through pipelines. However, when initially thinking about the problems at a high level, we</p>
+<p>%%
+This is mostly going to focus on a lot of code aesthetics idea and other general readability improvements, how they make things easier to understand by <em>briging them closer</em> to our human language, making it less of a translation.</p>
+<ul>
+<li>we need to take care that what we write reflects our mental model, and people reading our code (including that stranger <em>future you</em>) can understand our model from our code.
+<ul>
+<li>every translation, both ways, is an opportunity for a mistake to be made</li>
+</ul>
+</li>
+<li>When we define things in out native tongue, we can truly understand them and their responsibilities. As opposed to defining it in computer tongue
+%%</li>
+</ul>
+<hr>
+<p>%%</p>
+<ul>
+<li>you can of course have multiple models in the same language. but learning a new language is a good way to force yourself to do it.</li>
+<li>mention:
+<ul>
+<li>Gene Kim quoting Levi-Strauss &ldquo;Is it good to think in&rdquo;</li>
+<li>Language comprehension correlates better with <em>software dev</em> (probably not <em>cmpsc</em>) then math comprehension</li>
+</ul>
+</li>
+<li>When we define things in out
+%%</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

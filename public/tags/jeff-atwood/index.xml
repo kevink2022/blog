@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jeff-Atwood on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/jeff-atwood/</link>
+    <description>Recent content in Jeff-Atwood on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Mon, 28 Apr 2008 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jeff-atwood/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Blog] Programmers Don&#39;t Read Books -- But You Should</title>
+      <link>http://localhost:1313/learning/programmers_should_read_books/</link>
+      <pubDate>Mon, 28 Apr 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/programmers_should_read_books/</guid>
+      <description>Programmers Don&amp;rsquo;t Read Books &amp;ndash; But You Should Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his recommended reading list.</description>
+      <content:encoded><![CDATA[<h3 id="programmers-dont-read-books----but-you-shouldhttpsblogcodinghorrorcomprogrammers-dont-read-books-but-you-should"><a href="https://blog.codinghorror.com/programmers-dont-read-books-but-you-should/">Programmers Don&rsquo;t Read Books &ndash; But You Should</a></h3>
+<p>Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his <a href="https://blog.codinghorror.com/recommended-reading-for-developers/">recommended reading list</a>.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

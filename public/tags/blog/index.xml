@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/blog/</link>
+    <description>Recent content in Blog on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Fri, 23 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Blog] After 14 years in the industry, I still find programming difficult</title>
+      <link>http://localhost:1313/learning/fourteen_years_still_difficult/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/fourteen_years_still_difficult/</guid>
+      <description>After 14 years in the industry, I still find programming difficult An insightful reflection in the midst of a career software, along with some practical lessons.&#xA;Related Hacker News Discussion </description>
+      <content:encoded><![CDATA[<h3 id="after-14-years-in-the-industry-i-still-find-programming-difficulthttpswwwpigleicomarticlesen-programming-is-still-hard-after-14-years"><a href="https://www.piglei.com/articles/en-programming-is-still-hard-after-14-years/">After 14 years in the industry, I still find programming difficult</a></h3>
+<p>An insightful reflection in the midst of a career software, along with some practical lessons.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=39480605">Hacker News Discussion</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] John Carmack on Inlined Code</title>
+      <link>http://localhost:1313/learning/john_carmack_inlining/</link>
+      <pubDate>Fri, 26 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/john_carmack_inlining/</guid>
+      <description>John Carmack on Inlined Code A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&amp;rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</description>
+      <content:encoded><![CDATA[<h3 id="john-carmack-on-inlined-codehttpnumber-nonecomblowjohn_carmack_on_inlined_codehtml"><a href="http://number-none.com/blow/john_carmack_on_inlined_code.html">John Carmack on Inlined Code</a></h3>
+<p>A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] Design is an Island</title>
+      <link>http://localhost:1313/learning/design_is_an_island/</link>
+      <pubDate>Sat, 18 Apr 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_is_an_island/</guid>
+      <description>Design is an Island Some of the most impactful learning materials aren&amp;rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</description>
+      <content:encoded><![CDATA[<h3 id="design-is-an-islandhttpstidyfirstsubstackcompdesign-is-an-island"><a href="https://tidyfirst.substack.com/p/design-is-an-island">Design is an Island</a></h3>
+<p>Some of the most impactful learning materials aren&rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] Programmers Don&#39;t Read Books -- But You Should</title>
+      <link>http://localhost:1313/learning/programmers_should_read_books/</link>
+      <pubDate>Mon, 28 Apr 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/programmers_should_read_books/</guid>
+      <description>Programmers Don&amp;rsquo;t Read Books &amp;ndash; But You Should Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his recommended reading list.</description>
+      <content:encoded><![CDATA[<h3 id="programmers-dont-read-books----but-you-shouldhttpsblogcodinghorrorcomprogrammers-dont-read-books-but-you-should"><a href="https://blog.codinghorror.com/programmers-dont-read-books-but-you-should/">Programmers Don&rsquo;t Read Books &ndash; But You Should</a></h3>
+<p>Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his <a href="https://blog.codinghorror.com/recommended-reading-for-developers/">recommended reading list</a>.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] In Defense of Not-Invented-Here Syndrome</title>
+      <link>http://localhost:1313/learning/defense_of_nih/</link>
+      <pubDate>Mon, 01 Oct 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/defense_of_nih/</guid>
+      <description>In Defense of Not-Invented-Here Syndrome Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&amp;rsquo;t. Like all software &amp;rsquo;laws,&amp;rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.&#xA;Related Hacker News Discussion (2023) </description>
+      <content:encoded><![CDATA[<h3 id="in-defense-of-not-invented-here-syndromehttpswwwjoelonsoftwarecom20011014in-defense-of-not-invented-here-syndrome"><a href="https://www.joelonsoftware.com/2001/10/14/in-defense-of-not-invented-here-syndrome/">In Defense of Not-Invented-Here Syndrome</a></h3>
+<p>Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&rsquo;t. Like all software &rsquo;laws,&rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34750382">Hacker News Discussion (2023)</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

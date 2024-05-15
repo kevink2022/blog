@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Leadership on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/leadership/</link>
+    <description>Recent content in Leadership on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Sat, 01 Dec 2001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Paper] Better Testing, Worse Quality?</title>
+      <link>http://localhost:1313/learning/better_testing_worse_quality/</link>
+      <pubDate>Sat, 01 Dec 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/better_testing_worse_quality/</guid>
+      <description>Better Testing, Worse Quality? Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</description>
+      <content:encoded><![CDATA[<h3 id="better-testing-worse-qualityhttpsciteseerxistpsuedudocumentrepidrep1typepdfdoi309d45cb667d5ce43365bc30a5e82f118f42b4d0"><a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=309d45cb667d5ce43365bc30a5e82f118f42b4d0">Better Testing, Worse Quality?</a></h3>
+<p>Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Paper] Nobody Ever Gets Credit for Fixing Problems that Never Happened: Creating and Sustaining Process Improvement</title>
+      <link>http://localhost:1313/learning/fixing_problems_before_they_happen/</link>
+      <pubDate>Fri, 01 Jun 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/fixing_problems_before_they_happen/</guid>
+      <description>Nobody Ever Gets Credit for Fixing Problems that Never Happened: Creating and Sustaining Process Improvement A deep look into the common pitfalls of trying to work harder instead of work smarter.</description>
+      <content:encoded><![CDATA[<h3 id="nobody-ever-gets-credit-for-fixing-problems-that-never-happened-creating-and-sustaining-process-improvementhttpswebmitedunelsonrwwwrepenningsterman_cmr_su01_pdf"><a href="https://web.mit.edu/nelsonr/www/Repenning=Sterman_CMR_su01_.pdf">Nobody Ever Gets Credit for Fixing Problems that Never Happened: Creating and Sustaining Process Improvement</a></h3>
+<p>A deep look into the common pitfalls of trying to work harder instead of work smarter.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Book] The Mythical Man-Month: Essays on Software Engineering</title>
+      <link>http://localhost:1313/learning/the_mythical_man_month/</link>
+      <pubDate>Fri, 01 Aug 1975 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/the_mythical_man_month/</guid>
+      <description>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his reading list:&#xA;&amp;ldquo;Computers may change, but people don&amp;rsquo;t.&amp;rdquo;&#xA;&amp;mdash; Jeff Atwood</description>
+      <content:encoded><![CDATA[<h3 id="the-mythical-man-month-essays-on-software-engineering-anniversary-editionhttpswwwthriftbookscomwthe-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr245869"><a href="https://www.thriftbooks.com/w/the-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr/245869/">The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</a></h3>
+<p>A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his <a href="">reading list</a>:</p>
+<blockquote>
+<p>&ldquo;Computers may change, but people don&rsquo;t.&rdquo;</p>
+<p>&mdash; Jeff Atwood</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,10 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Kevin Kelly'
+theme = "hugo-bearcub"
+copyright = "Kevin Kelly (CC BY 4.0)"
+madeWith = "Made with [Bear Cub](https://github.com/clente/hugo-bearcub)"
+
+[params]
+  description = "Bear Cub Demo"
+  madeWith = "Made with [Bear Cub](https://github.com/clente/hugo-bearcub)"

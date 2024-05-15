@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Software-Complexity on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/software-complexity/</link>
+    <description>Recent content in Software-Complexity on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Fri, 26 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/software-complexity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Blog] John Carmack on Inlined Code</title>
+      <link>http://localhost:1313/learning/john_carmack_inlining/</link>
+      <pubDate>Fri, 26 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/john_carmack_inlining/</guid>
+      <description>John Carmack on Inlined Code A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&amp;rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</description>
+      <content:encoded><![CDATA[<h3 id="john-carmack-on-inlined-codehttpnumber-nonecomblowjohn_carmack_on_inlined_codehtml"><a href="http://number-none.com/blow/john_carmack_on_inlined_code.html">John Carmack on Inlined Code</a></h3>
+<p>A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Simplicity Matters</title>
+      <link>http://localhost:1313/learning/simplicity_matters/</link>
+      <pubDate>Wed, 25 Apr 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/simplicity_matters/</guid>
+      <description>Simplicity Matters A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren&amp;rsquo;t vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.&#xA;Related [[simple_made_easy|Simple Made Easy]] </description>
+      <content:encoded><![CDATA[<h3 id="simplicity-mattershttpswwwyoutubecomwatchvri8tnmsozo0"><a href="https://www.youtube.com/watch?v=rI8tNMsozo0">Simplicity Matters</a></h3>
+<p>A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren&rsquo;t vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li>[[simple_made_easy|Simple Made Easy]]</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Simple Made Easy</title>
+      <link>http://localhost:1313/learning/simple_made_easy/</link>
+      <pubDate>Tue, 20 Sep 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/simple_made_easy/</guid>
+      <description>Simple Made Easy An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &amp;lsquo;inviting the elephant&amp;rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</description>
+      <content:encoded><![CDATA[<h3 id="simple-made-easyhttpswwwyoutubecomwatchvsxdougdseq4"><a href="https://www.youtube.com/watch?v=SxdOUGdseq4">Simple Made Easy</a></h3>
+<p>An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &lsquo;inviting the elephant&rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li>[[simplicity_matters|Simplicity Matters]]</li>
+</ul>
+<h3 id="notes">Notes</h3>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Are We There Yet?</title>
+      <link>http://localhost:1313/learning/are_we_there_yet/</link>
+      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/are_we_there_yet/</guid>
+      <description>Are We There Yet Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher Alfred North Whitehead, that does.</description>
+      <content:encoded><![CDATA[<h3 id="are-we-there-yethttpswwwyoutubecomwatchvscepu1cs4l0"><a href="https://www.youtube.com/watch?v=ScEPu1cs4l0">Are We There Yet</a></h3>
+<p>Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher <a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead">Alfred North Whitehead</a>, that does.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Book] The Mythical Man-Month: Essays on Software Engineering</title>
+      <link>http://localhost:1313/learning/the_mythical_man_month/</link>
+      <pubDate>Fri, 01 Aug 1975 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/the_mythical_man_month/</guid>
+      <description>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his reading list:&#xA;&amp;ldquo;Computers may change, but people don&amp;rsquo;t.&amp;rdquo;&#xA;&amp;mdash; Jeff Atwood</description>
+      <content:encoded><![CDATA[<h3 id="the-mythical-man-month-essays-on-software-engineering-anniversary-editionhttpswwwthriftbookscomwthe-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr245869"><a href="https://www.thriftbooks.com/w/the-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr/245869/">The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</a></h3>
+<p>A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his <a href="">reading list</a>:</p>
+<blockquote>
+<p>&ldquo;Computers may change, but people don&rsquo;t.&rdquo;</p>
+<p>&mdash; Jeff Atwood</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

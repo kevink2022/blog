@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Software on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/software/</link>
+    <description>Recent content in Software on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Thu, 02 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boomic Architecture: Composers and Instruments</title>
+      <link>http://localhost:1313/blog/boomic_architecture/</link>
+      <pubDate>Thu, 02 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/boomic_architecture/</guid>
+      <description>The first time I set out to make Boomic, I didn&amp;rsquo;t think about architecture at all. The app quickly became a coupled disaster, and making the smallest changes felt daunting. This time around, I committed to learning and understanding software design and architecture. Learn to build a composable system, designed for change. This is how I started, where I went wrong, and where I am now.&#xA;I ended up starting my development based on the layered arch from Jacob Bartlett&amp;rsquo;s excellent post on Modular Architecture for Apps .</description>
+      <content:encoded><![CDATA[<p>The first time I set out to make Boomic, I didn&rsquo;t think about architecture at all. The app quickly became a coupled disaster, and making the smallest changes felt daunting. This time around, I committed to learning and understanding software design and architecture. Learn to build a composable system, designed for change. This is how I started, where I went wrong, and where I am now.</p>
+<p>I ended up starting my development based on the layered arch from Jacob Bartlett&rsquo;s excellent post on <a href="https://jacobbartlett.substack.com/p/modular-architecture-for-apps">Modular Architecture for Apps</a> . I was closely following the architecture of their <a href="https://github.com/jacobsapps/bev17/tree/main?tab=readme-ov-file">Bev Sample App</a>, using the Repository pattern, featured in his series on <a href="https://jacobbartlett.substack.com/p/async-unit-testing-in-swift-the-comprehensive">Async Unit Testing</a>. I highly recommend <a href="https://jacobbartlett.substack.com/">Jacobs Tech Tavern</a> to any iOS app developers.</p>
+<p>The &lsquo;Repository Pattern&rsquo; is where you create a single <code>Repository</code> component that serves the data to the UI. The UI doesn&rsquo;t have to worry about where the data is coming from, while the repository can combine data from different sources. In Bev, Jacob shows a use case of grabbing local, cached data from a database, while fetching the most up-to-date data from an API. Here&rsquo;s cut down version of what this looks like:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">returnMultipleTimes</span>() async <span style="color:#66d9ef">throws</span> {
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> beers = <span style="color:#66d9ef">try</span>? await db?.getBeers() {
+</span></span><span style="display:flex;"><span>		beersPublisher.send(beers)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">do</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> beers = <span style="color:#66d9ef">try</span> await api.getAllBeers()
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">try</span>? await db?.save(beers: beers)
+</span></span><span style="display:flex;"><span>		beersPublisher.send(beers)
+</span></span><span style="display:flex;"><span>	} <span style="color:#66d9ef">catch</span> { <span style="color:#75715e">/* handle error */</span> }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div><p>My first goal for Boomic was to simply load audio files from a local directory into a <code>Database</code> as <code>Song</code> objects, then load them from the database onto the UI. I needed some kind of <code>MediaFileInterface</code> to load audio files from a directory and extract their metadata into the <code>Song</code> objects. Thinking that the database was likely the only thing that needed to load files this way, as the rest of my app could just deal with <code>Song</code> objects, I went with a design like this:</p>
+<p><img src="/images/original_database.svg" alt="Original Database with coupled file interface"></p>
+<p>It was after watching Rich Hickey&rsquo;s <a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a> that I realized what kind of mistake I was making with the database.</p>
+<p>I thought that simply by using Swift&rsquo;s protocols, I was keeping these components decoupled. I could easily switch from a local to a remote directory with the same <code>MediaFileInterface</code> protocol. But I was still coupling the Database to the fact that it had to know where it was getting its <code>Song</code> objects from. This would&rsquo;ve have flown under my radar, until I thought about Apple Music. A long-term goal of Boomic is to be able to sync your Apple Music library alongside your local library. Since I want to have the same tags and ratings for both Apple Music and local songs, I wanted to store them in the same database. Assuming I did that that now, the database would look like this:</p>
+<p><img src="/images/original_database_expanded.svg" alt="Original Database with two coupled file interfaces"></p>
+<p>I would need to edit the database itself, its public interface, and the repository that calls it. By just making the database aware of a protocol to get new songs, I was giving the database an extra responsibility: don&rsquo;t just store the songs, but get the new ones as well. Lets remove that separate responsibility and see what it looks like:</p>
+<p><img src="/images/decoupled_database.svg" alt="Update, decoupled database with separate file interface"></p>
+<p>Now, the <code>Repository</code> can simply have two different functions for each different source. The <code>Database</code> itself can be designed in a much simpler, more generic manner, without worrying where it is getting new data from. More importantly, when I want to add the Apple Music support, I only have to change the app-specific <code>Repository</code>, instead of making my way down the stack, adjusting each component to fit the new use case. I simply a write a new composition of a new component, the <code>AppleMusicInterface</code> and an old one, the <code>Database</code>.</p>
+<hr>
+<h3 id="breaking-it-down-composers-and-instruments">Breaking it down: Composers and Instruments</h3>
+<p>I really liked the general repository pattern, and felt it could be extended outside the realm of data operations. As I mentioned earlier, it was watching the aforementioned <a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a> when the value of the repository pattern really clicked. So, lets borrow some vocabulary (albeit in a slightly different way) and see how it feels:</p>
+<ul>
+<li><strong>Instruments:</strong> Single responsibility, usually generic components.</li>
+<li><strong>Composers</strong>: Components that coordinate one or more instruments to achieve something specific.</li>
+</ul>
+<p>In my app so far, the <code>Database</code>, <code>MediaFileInterface</code>, <code>AppleMusicInterface</code>, and any other sources of data such as an <code>ImageCache</code> are the instruments. Each instrument does their specific tasks, is completely decoupled from the others, and can be reused in other parts of the program (for example, using <code>AppleMusicInterface</code> to grab the rest of an album from one song in the library). Then, the <code>Repository</code> is a composer that handles the specific needs of my app by, well, composing these instruments together.</p>
+<hr>
+<h3 id="composers-as-instruments">Composers as Instruments.</h3>
+<p>I want to make one thing about this design philosophy clear: Just because something is an instrument, doesn&rsquo;t mean it cannot be composed of other instruments. An example of this is how I am currently storing transactions.</p>
+<p>To store transactions as they&rsquo;re received, I built a generic <code>LogStore</code> class that saves <code>Codable</code> objects at a key in the order they&rsquo;re received, like a standard log. This is pretty clearly an instrument: single-responsibility, generic, ready to be composed into various purpose specific components. But the <code>LogStore</code> itself was composed with another instrument: the <code>SimpleStore</code>.</p>
+<p>The <code>SimpleStore</code> itself just saves and overwrites the object saved at its key. So the most basic implementation of a <code>LogStore&lt;T&gt;</code> can just use a single <code>SimpleStore&lt;[T]&gt;</code>, which is exactly what I have done for now as my proof-of-concept:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LogStore</span>&lt;Log: Loggable&gt; {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> storage: SimpleStore<span style="color:#f92672">&lt;</span>[Log]<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">init</span>(key: String) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.storage = SimpleStore(key: key)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">save</span>(<span style="color:#66d9ef">_</span> log: Log) async <span style="color:#66d9ef">throws</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> pastLogs = <span style="color:#66d9ef">try</span> await storage.load()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> logs = pastLogs ?? []
+</span></span><span style="display:flex;"><span>        logs.insert(log, at: <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> await storage.save(logs)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div><p>This is pretty inefficient, since as logs are written to disk right away. A better version of this would be using multiple simple stores, with a cache <code>SimpleStore</code> for quickly saving of the most recent logs, and then periodically merging them in with the older logs from another <code>SimpleStore</code> in the background. Either way, the <code>LogStore</code> here an example of a composer: composing one or more instances of the generic <code>SimpleStore</code> instrument. But, it itself is a generic, composable instrument, that I use to store transactions now, and probably logs in the future.</p>
+<p>I think Rich Hickey really illustrates this point well at from <a href="https://youtu.be/QCwqnjxqfmY?t=2479&amp;si=jhGajdysPBKZE5As">41:19-42:42</a> in, you guessed it, Design, Composition, and Performance! <a href="https://www.arturia.com/stories/yvesusson-insideamodularmind">Yves Usson</a>, who designed the synthesizer, composed the it out of machines that themselves individual instruments, or at least would be in this current model. Then, the synthesizer itself is available to musicians to use in composition with other instruments.</p>
+<hr>
+<h3 id="isnt-this-obvious">Isn&rsquo;t this obvious?</h3>
+<p>Isn&rsquo;t this just another way of saying &lsquo;we should be building composable systems?&rsquo; Yeah, pretty much, but I think there is a lot of value in reframing the way we think about our systems with specific terminology and strong analogies. In just writing this post and applying this thinking to the system that inspired it, I realized that the <code>MediaFileInterface</code>, which doesn&rsquo;t necessarily violate the Single Responsibility Principle (translate all the files in a root directory into <code>Song</code> objects), is both not generalizable, and could be broken apart into two separate, more generalizable, instruments.</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// old</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> newSongs = MediaFileInterface().newSongs(existing: existingSongs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// new</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> knownFiles = existingSongs.map { $0.file }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> newFiles = FileInterface().all([<span style="color:#e6db74">&#34;mp3&#34;</span>, <span style="color:#e6db74">&#34;flac&#34;</span>], ignoring: knownFiles)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> newSongs = newFiles.map { Song(fromFile: $0) }</span></span></code></pre></div><p>For me, it really is that reframing that can bring a lot of value. I was comfortable calling the <code>MediaFileInterface</code> a simple, single responsibility component that only had one public function, and it was only 60 lines. But it was a specific component I built for a specific purpose. When I want to play guitar in a new key, do I buy a whole new guitar? No, I take my existing guitar, and just put on, <em>or compose it with,</em> a capo!</p>
+<p>So, after reframing the question, I was not comfortable calling the <code>MediaFileInterface</code> a good instrument. Which led me to asking &ldquo;Could this be composed of simpler instruments?&rdquo; and &ldquo;Could this be more generic?&rdquo; and ended with me building the new, more generic <code>FileInterface</code>, which I am already using in another part of the <code>Repository</code>.</p>
+<p>To summarize, I think we can build the vast majority of what we create with generic instruments and a few composers. Whenever we do something specific, we should try to break it down into generic instruments, and build those instruments with simpler and simpler parts. This will give us many a huge toolbox to compose with, and we can easily write tests for most of the instruments, giving our compositions strong foundations.</p>
+<hr>
+<h3 id="in-practice">In Practice</h3>
+<p>Finally back to the app, what does Boomic look like today. I am still some time away from the MVP, and so plan on updating this part of the post down the road. Especially if (more likely when) I find I didn&rsquo;t have as complete of an understanding as I thought I had. But here is the current structure, still relatively flat but much, much less coupled then its predecessor:</p>
+<p><img src="/images/boomic_arc.svg" alt="boomic_architecture"></p>
+<ul>
+<li><strong><code>Repository</code></strong>: Composer of the data instruments, specifically for the UI.
+<ul>
+<li><strong><code>Transactor</code></strong>: Serially stores library transactions, and publishes a new <code>DataBasis</code> to reflect that transaction.
+<ul>
+<li><strong><code>DataBasis</code></strong>: Immutable value of the entire library.  Progression of state tracked by the <code>Transactor</code>.</li>
+</ul>
+</li>
+<li><strong><code>QueryEngine</code></strong>: Queries a <code>DataBasis</code>.</li>
+<li><strong><code>FileInterface</code></strong>: Provides enumerations of specified file extensions from a root directory.</li>
+<li><strong><code>MetadataLoader</code></strong>: Extracts metadata from audio files, both embedded and from the surrounding files.</li>
+</ul>
+</li>
+<li><strong><code>Player</code></strong>: Composer of the audio playback instruments. Has a fair amount of state.
+<ul>
+<li><strong><code>Engine</code></strong>: The interface to the library that makes the system calls to playback audio. Each song gets its own engine, allowing for pre-loading.</li>
+<li><strong><code>Queue</code></strong>: An immutable value representing the queue. Progression of state tracked by the <code>Player</code>.</li>
+<li><strong><code>Mixer</code></strong>: Applies EQ and Effects to the <code>Engine</code>.</li>
+</ul>
+</li>
+<li><strong><code>ImageCache</code></strong>: Shared cache, keys embedded album art with MD5 hashes to prevent initializing the same images over and over.</li>
+</ul>
+<h5 id="immediate-plans">Immediate Plans</h5>
+<ul>
+<li>Create a <code>LiveQueryEngine</code> that tracks changes and updates views when the <code>DataBasis</code> updates.</li>
+<li>Have the <code>Player</code> directly access the <code>Repository</code> instead of just sharing the <code>ImageCache</code> so it can respond to <code>DataBasis</code> updates.</li>
+<li>Look into making the <code>QueryEngine</code>, <code>MetadataLoader</code>,  <code>Engine</code>, and <code>Queue</code> classes more generic. They all currently rely on this app&rsquo;s custom data types (even if by name only), such as <code>Song</code> or <code>DataBasis</code> objects. From the instrument/composer point of view, this is generally bad practice, though may be unavoidable in certain cases.</li>
+</ul>
+<p>There is a lot more work to do to make the immutable <code>DataBasis</code> pattern work with Swifts observation frameworks, and make the UI reactive to specific changes. I have reflected on whether keeping the pattern is worth it and have decided to continue it. More on why I am storing data this way in a future blogpost.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>How learning Japanese has changed the way I think about programming languages.</title>
+      <link>http://localhost:1313/blog/spoken_vs_programming_languages/</link>
+      <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/spoken_vs_programming_languages/</guid>
+      <description>I was having a conversation with a friend the other day, who like many people that get paid to write code, has no background in computer science. They were talking about how their employer wanted them to learn C# (they had mostly been using python) for a potential .NET app, and so they had paid for a C# course.&#xA;While this makes sense as one of the quickest ways to get up to speed with a certain language, I recommended they pay attention to and learn the fundamental constructs that C# shares with Python, and where it differs.</description>
+      <content:encoded><![CDATA[<p>I was having a conversation with a friend the other day, who like many people that get paid to write code, has no background in computer science. They were talking about how their employer wanted them to learn C# (they had mostly been using python) for a potential .NET app, and so they had paid for a C# course.</p>
+<p>While this makes sense as one of the quickest ways to get up to speed with a certain language, I recommended they pay attention to and learn the fundamental constructs that C#  shares with Python, and where it differs.</p>
+<p>Most professional programmers and software engineers have used, or at least dabbled with, many different languages throughout their careers, to the point where switching to another language becomes almost trivial. We can design systems with these fundamental constructs, then implement them in these different languages.</p>
+<p>Once we obtain that deep understanding of fundamental constructs, we can become very confident and proud of our ability to &rsquo;think in computer.&rsquo; Which is essential, we are writing for computers after all. But we often fail to see the drawbacks in limiting our thinking like that. I knew that we should strive for clean, &lsquo;readable&rsquo; code, but I didn&rsquo;t truly understand the essence of that goal until I tried to think in another spoken language.</p>
+<hr>
+<h3 id="to-understand-or-to-be-understood">To understand or to be understood.</h3>
+<p>The Japanese word that inspired this line of thinking was 分かる (pronounced <em>wakaru</em>), which is a verb that <em>translates</em> to &rsquo;to understand.&rsquo; I had learned it a few years back in college in preparation to study abroad, but covid had other plans for my time in college. Now as a graduate, I decided to start learning Japanese again because it was quite fun, and I no longer in a rush to learn it all within two years.</p>
+<p>One of the many details I often brushed pass the first time around whether verbs were <em>intransitive</em> or <em>transitive</em>, which describes whether or not the verb is performed by the subject (intransitive) on itself or on a direct object (transitive). Basically, in the sentence &lsquo;<em>I</em> am running,&rsquo; running is intransitive, because I, the subject, is what is running. While in the sentence &lsquo;I am running the <em>dishwasher,</em>&rsquo; running is transitive, because I, the subject, am performing the verb on the dishwasher, the direct object.</p>
+<p>To my horror, I realized 分かる was intransitive. In my many conversations (mostly with myself, I have been terrified to make this exact kind of mistake online) I have had in Japanese these last few years, I have been using 分かる wrong, as a transitive verb.</p>
+<p>The <a href="https://www.wanikani.com/vocabulary/%E5%88%86%E3%81%8B%E3%82%8B">Wanikani explanation</a> of the word says it best, so I&rsquo;ll just quote it in here:</p>
+<blockquote>
+<p>This word means to <em>understand</em>, which might surprise you if you remember that the kanji 分 means <em>part</em>. Think of it this way: to understand something you have to break it down into its parts to see how it works.</p>
+<p>Watch out, though, because whereas in English you understand something, in Japanese the thing you understand is the grammatical subject (it&rsquo;s doing the action). So, a more literal meaning for this is <em>to be understandable</em>. In other words, there&rsquo;s no object, and 分かる is intransitive, meaning it happens on its own. The かる ending is a hint, because verbs with かる as okurigana (kana added to the kanji) are usually intransitive.</p>
+</blockquote>
+<p>To me, this is a completely different <em>mental model</em>, almost a different way of thinking. Lets borrow that word <em>model</em> and take a look at at what I mean. If I wanted to say &lsquo;I understand that book&rsquo; in Japanese, I would say「その本が分かる.」Lets break that down real quick:</p>
+<table>
+<thead>
+<tr>
+<th>&lsquo;Word&rsquo;</th>
+<th>Pronounciation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>その</td>
+<td>sono</td>
+<td>that (thing)</td>
+</tr>
+<tr>
+<td>本</td>
+<td>hon</td>
+<td>book</td>
+</tr>
+<tr>
+<td>が</td>
+<td>ga</td>
+<td>subject marker, marking その本 as the subject</td>
+</tr>
+<tr>
+<td>分かる</td>
+<td>wakaru</td>
+<td>to be understandable</td>
+</tr>
+</tbody>
+</table>
+<p>So then, lets take a look at how the models differ in each language:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th><em>Model</em></th>
+<th>In a sentance</th>
+<th>Translation of the <em>model</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To understand</td>
+<td>To understand</td>
+<td>I understand that book</td>
+<td>その本を分かる (grammatically incorrect)</td>
+</tr>
+<tr>
+<td>分かる</td>
+<td><em>To be understandable</em></td>
+<td>その本が分かる</td>
+<td>That book is understandable.</td>
+</tr>
+</tbody>
+</table>
+<p>The only difference between the correct sentence, and the one I would&rsquo;ve said, is that I would have replaced が, the &lsquo;subject marker,&rsquo; with を, the &lsquo;direct object marker.&rsquo; Instead of the book, I as the speaker would implicitly be the subject of that sentence. Which, of course, is a grammatically incorrect use of the Japanese verb, but makes perfect sense to me if I am using my English model. Now, when I do my Wanikani flashcards, I always try and take care to answer with the meaning that&rsquo;s the closest <em>model</em> to the word, which is not necessarily the closest <em>translation.</em></p>
+<p>This fundamental difference in the modeling everyday situations is reflected even stronger in the closest translations of the words &rsquo;to like&rsquo; and &rsquo;to want,&rsquo; which are 好き (pronounced suki) and 欲しい (pronounced hoshii) respectively. You might be thinking, &ldquo;Are they not just like 分かる in the previous example, where they&rsquo;re just intransitive verbs?&rdquo; Nope, they&rsquo;re <em><strong>adjectives</strong></em>.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th><em>Model</em></th>
+<th>In a sentance</th>
+<th>Translation of the <em>model</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To like</td>
+<td>To like</td>
+<td>I like that book</td>
+<td>その本を好きだ (<em>very</em> grammatically incorrect)</td>
+</tr>
+<tr>
+<td>好き</td>
+<td>is likeable</td>
+<td>その本が好きだ</td>
+<td>That book is likeable.</td>
+</tr>
+</tbody>
+</table>
+<p>I absolutely could not wrap my head around this general model when I first learned it. When we use adjectives in English, we are generally either saying n objective fact, or we preface our subjective opinions with the fact that they are, well, opinions. I mean, if you were struggling to grasp some LeetCode problem and asked me for help, and I walked over and said &lsquo;That problem is understandable.&rsquo; You might think I&rsquo;m insulting you!</p>
+<p>But Japanese is a <em>heavily</em> context based language. So when I say a thing is understandable, it is generally understood to be my point of view of the situation, not a comment on whether the thing is easy to understand.</p>
+<hr>
+<h3 id="but-what-does-this-have-to-do-with-programming-languages">But what does this have to do with programming languages?</h3>
+<p>I think the weight of the word <em>language</em> in programming <em>language</em> is often lost on us. Just like how I have to rewire my brain to think in a Japanese model, I had to do the same when I was first learning to program, just in a model of computation. Thinking in variables, if/else blocks, and loops. But unlike when I use my English model in a Japanese sentence, using an unclear or incorrect model to solve a problem might not just be harmless little grammar mistakes, but could have real world consequences. Even if you&rsquo;re confident in you and your team&rsquo;s ability to &rsquo;think in computer,&rsquo; you should have no faith in their ability to &lsquo;<em>communicate</em> in computer.&rsquo; Similar to Japanese, programming languages themselves can be dangerously context dependent, and far too much can get lost in translation.</p>
+<p>Think back to the explanation of those Japanese sentences. Presuming you&rsquo;re a native English speaker, to understand the meaning of the Japanese sentences, you needed to know both:</p>
+<ul>
+<li>How the sentence was built via the <em>Japanese model.</em></li>
+<li>The message being communicated via the <em>English translation.</em></li>
+</ul>
+<p>I think the same thing is going on whenever we write programs. We build our code &lsquo;sentences&rsquo; in a <em>computer model</em> to be executed. But the computer isn&rsquo;t the only one who needs to understand our code: people need to as well.</p>
+<p>So, we need to focus on being explicit in the intention of our code by including translation, the actual meaning we&rsquo;re trying to communicate, <em>within</em> the code.</p>
+<p>Remember the mistranslation that can occur from earlier if we tried to communicate with a different model:</p>
+<ul>
+<li>&ldquo;That problem is understandable.&rdquo;</li>
+<li><em>(Is he insulting me?)</em> &ldquo;I think its pretty difficult.&rdquo;</li>
+</ul>
+<p>These same mistranslations can occur when we try and communicate in computer models. A dead simple example (imagine this is an in-house sleep with no documentation):</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>sleep(<span style="color:#ae81ff">2</span>) <span style="color:#75715e">// minutes, seconds, microseconds? you might not have the context, but the computer knows.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> SECONDS = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>sleep(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>SECONDS) <span style="color:#75715e">// this is the exact same model with an included translation</span></span></span></code></pre></div><p>A little anecdote I like to remember this concept by, when I went to sports camps as a kid, something we were always told was to &ldquo;stay on the balls of your feet.&rdquo; I mistranslated their message of &ldquo;keep your weight forward&rdquo; as &ldquo;keep those heels off the ground buddy.&rdquo; I have <em>massive</em> calves now.</p>
+<p>Whats far more likely then a simple mistranslation, and what I&rsquo;m sure you&rsquo;ve encountered many more times, is when there is <em>nothing</em> to translate. When your reading some code and you sit there, thinking:</p>
+<blockquote>
+<p>What on <em>earth</em> were they trying to do here? What could their intention possibly have been?</p>
+</blockquote>
+<p>At this point, all bets are off, who knows if your going to translate that code correctly.</p>
+<p>I could take the time to come up with some more examples, but I would highly recommend taking the time to watch these two <a href="/learning/code_aesthetic">CodeAesthetic</a> videos. Their examples are much more engaging then what I&rsquo;d come up with, and I think are both videos getting after this core idea. In all of the examples they give, notice how the function (the model) of the code doesn&rsquo;t change at all, but the added context (the translation) helps make the code more understandable and maintainable.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=-J3wNP6u5YU">Naming Things in Code (7:24)</a></li>
+<li><a href="https://www.youtube.com/watch?v=Bf7vDBBOBUA">Don&rsquo;t Write Comments (5:54)</a></li>
+</ul>
+<p>To take this one last step forward: when we fail to write our translations down, what we end up writing might not even match what we had in our heads. While thought is <a href="/blog/knowing_vs_understanding">deep and intricate</a>, its also a by nature a <a href="/learning/language_is_a_bottleneck">lossy medium</a>. Don&rsquo;t add more loss for no reason.</p>
+<blockquote>
+<p>&ldquo;Writing the decisions down is essential. Only when one writes do the gaps appear and the inconsistencies protrude. The act of setting turns out to require hundreds of mini decisions, and if the existence of these that distinguishes clear, exact policies from the fuzzy ones.&rdquo;</p>
+<p>&mdash; Fred Brooks, <a href="/learning/the_mythical_man_month"><em>The Mythical Man-Month</em></a></p>
+</blockquote>
+<p>If writing in our model of our native tongues requires &ldquo;hundreds of mini decisions&rdquo;, imagine what happens when we try to skip directly to a foreign computational model without first distinguishing &ldquo;clear, exact policies from the fuzzy ones.&rdquo;</p>
+<hr>
+<h3 id="to-summarize">To Summarize:</h3>
+<ul>
+<li>We are fundamentally translating from a human language mental model of the computational, digital model when we write software.</li>
+<li>We should always be as explicit as possible with our intentions when we write software, making clear our <em>translations</em> of the <em>models</em>, being very specific so we can:
+<ul>
+<li>Better communicate our intentions to our teams (and our future selves).</li>
+<li>Confirm what we write matches our original intention.</li>
+<li>Encapsulate those models into simple components we can think about in a whole system.</li>
+</ul>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] After 14 years in the industry, I still find programming difficult</title>
+      <link>http://localhost:1313/learning/fourteen_years_still_difficult/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/fourteen_years_still_difficult/</guid>
+      <description>After 14 years in the industry, I still find programming difficult An insightful reflection in the midst of a career software, along with some practical lessons.&#xA;Related Hacker News Discussion </description>
+      <content:encoded><![CDATA[<h3 id="after-14-years-in-the-industry-i-still-find-programming-difficulthttpswwwpigleicomarticlesen-programming-is-still-hard-after-14-years"><a href="https://www.piglei.com/articles/en-programming-is-still-hard-after-14-years/">After 14 years in the industry, I still find programming difficult</a></h3>
+<p>An insightful reflection in the midst of a career software, along with some practical lessons.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=39480605">Hacker News Discussion</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Article] [Essentials] 10 Things Software Developers Should Learn about Learning</title>
+      <link>http://localhost:1313/learning/ten_things_about_learning/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/ten_things_about_learning/</guid>
+      <description>10 Things Software Developers Should Learn about Learning In an industry where constant learning is so important, maybe we should think a little bit about how we&amp;rsquo;re learning before we spend our lives doing it.&#xA;Related PDF Version Hacker News Discussion </description>
+      <content:encoded><![CDATA[<h3 id="10-things-software-developers-should-learn-about-learninghttpscacmacmorgresearch10-things-software-developers-should-learn-about-learning"><a href="https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/">10 Things Software Developers Should Learn about Learning</a></h3>
+<p>In an industry where constant learning is so important, maybe we should think a little bit about how we&rsquo;re learning before we spend our lives doing it.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://dl.acm.org/doi/pdf/10.1145/3584859">PDF Version</a></li>
+<li><a href="https://news.ycombinator.com/item?id=38777647">Hacker News Discussion</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Code Aesthetic</title>
+      <link>http://localhost:1313/learning/code_aesthetic/</link>
+      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/code_aesthetic/</guid>
+      <description>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:&#xA;Why You Shouldn&amp;rsquo;t Nest Your Code Highlights how simply limiting the amount you nest your code will force you to write better code.&#xA;Don&amp;rsquo;t Write Comments In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</description>
+      <content:encoded><![CDATA[<p>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:</p>
+<h3 id="why-you-shouldnt-nest-your-codehttpswwwyoutubecomwatchvcfrhgnuxg-4"><a href="https://www.youtube.com/watch?v=CFRhGnuXG-4">Why You Shouldn&rsquo;t Nest Your Code</a></h3>
+<p>Highlights how simply limiting the amount you nest your code will force you to write better code.</p>
+<h3 id="dont-write-commentshttpswwwyoutubecomwatchvbf7vdbbobua"><a href="https://www.youtube.com/watch?v=Bf7vDBBOBUA">Don&rsquo;t Write Comments</a></h3>
+<p>In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</p>
+<h3 id="dependency-injection-the-best-patternhttpswwwyoutubecomcodeaestheticvideos"><a href="https://www.youtube.com/@CodeAesthetic/videos">Dependency Injection, The Best Pattern</a></h3>
+<p>Great visualization and introduction to the many strengths and benefits of dependency injection.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Design in Practice</title>
+      <link>http://localhost:1313/learning/design_in_practice/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_in_practice/</guid>
+      <description>Design in Practice Practical tools and methodologies that Rich and the Clojure/Datomic teams use in their design process, along with real world examples, such and project glossaries and the decision matrix.</description>
+      <content:encoded><![CDATA[<h3 id="design-in-practicehttpswwwyoutubecomwatchvc5qf2hjhlset1s"><a href="https://www.youtube.com/watch?v=c5QF2HjHLSE&amp;t=1s">Design in Practice</a></h3>
+<p>Practical tools and methodologies that Rich and the Clojure/Datomic teams use in their design process, along with real world examples, such and project glossaries and the decision matrix.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Style Guide] Brooklyn Data Co. SQL style guide</title>
+      <link>http://localhost:1313/learning/brooklyn_data_sql_style_guide/</link>
+      <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/brooklyn_data_sql_style_guide/</guid>
+      <description>Brooklyn Data Co. SQL style guide A style guide? Well, if you work on SQL, I highly recommend checking it out. But even if you don&amp;rsquo;t, a lot can be learned from the intention of each guideline. I really appreciate how every decision made in this guide had a specific intention, with a huge focus on making as many of the developers decisions explicit to future readers.&#xA;If anything, I at least would like you to appreciate this quote that kicks off the style guide, and that I am sure my colleagues have heard enough of:</description>
+      <content:encoded><![CDATA[<h3 id="brooklyn-data-co-sql-style-guidehttpsgithubcombrooklyn-datacoblobmainsql_style_guidemd"><a href="https://github.com/brooklyn-data/co/blob/main/sql_style_guide.md">Brooklyn Data Co. SQL style guide</a></h3>
+<p>A style guide? Well, if you work on SQL, I highly recommend checking it out. But even if you don&rsquo;t, a lot can be learned from the <em>intention</em> of each guideline. I really appreciate how every decision made in this guide had a specific intention, with a huge focus on making as many of the developers decisions <em>explicit</em> to future readers.</p>
+<p>If anything, I at least would like you to appreciate this quote that kicks off the style guide, and that I am sure my colleagues have heard enough of:</p>
+<blockquote>
+<p>&ldquo;Newlines are cheap; people&rsquo;s time is expensive.&rdquo;</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] John Carmack on Inlined Code</title>
+      <link>http://localhost:1313/learning/john_carmack_inlining/</link>
+      <pubDate>Fri, 26 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/john_carmack_inlining/</guid>
+      <description>John Carmack on Inlined Code A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&amp;rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</description>
+      <content:encoded><![CDATA[<h3 id="john-carmack-on-inlined-codehttpnumber-nonecomblowjohn_carmack_on_inlined_codehtml"><a href="http://number-none.com/blow/john_carmack_on_inlined_code.html">John Carmack on Inlined Code</a></h3>
+<p>A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Design, Composition, and Performance</title>
+      <link>http://localhost:1313/learning/design_composition_performance/</link>
+      <pubDate>Wed, 03 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_composition_performance/</guid>
+      <description>Design, Composition, and Performance Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</description>
+      <content:encoded><![CDATA[<h3 id="design-composition-and-performancehttpswwwyoutubecomwatchvqcwqnjxqfmy"><a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a></h3>
+<p>Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Simplicity Matters</title>
+      <link>http://localhost:1313/learning/simplicity_matters/</link>
+      <pubDate>Wed, 25 Apr 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/simplicity_matters/</guid>
+      <description>Simplicity Matters A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren&amp;rsquo;t vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.&#xA;Related [[simple_made_easy|Simple Made Easy]] </description>
+      <content:encoded><![CDATA[<h3 id="simplicity-mattershttpswwwyoutubecomwatchvri8tnmsozo0"><a href="https://www.youtube.com/watch?v=rI8tNMsozo0">Simplicity Matters</a></h3>
+<p>A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren&rsquo;t vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li>[[simple_made_easy|Simple Made Easy]]</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Simple Made Easy</title>
+      <link>http://localhost:1313/learning/simple_made_easy/</link>
+      <pubDate>Tue, 20 Sep 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/simple_made_easy/</guid>
+      <description>Simple Made Easy An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &amp;lsquo;inviting the elephant&amp;rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</description>
+      <content:encoded><![CDATA[<h3 id="simple-made-easyhttpswwwyoutubecomwatchvsxdougdseq4"><a href="https://www.youtube.com/watch?v=SxdOUGdseq4">Simple Made Easy</a></h3>
+<p>An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &lsquo;inviting the elephant&rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li>[[simplicity_matters|Simplicity Matters]]</li>
+</ul>
+<h3 id="notes">Notes</h3>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Hammock Driven Development</title>
+      <link>http://localhost:1313/learning/hammock_driven_development/</link>
+      <pubDate>Mon, 25 Oct 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/hammock_driven_development/</guid>
+      <description>Hammock Driven Development Rich Hickey goes into the details about how he solves hard problems by utilizing the part of our brains that evolution created for to the deep connections abstractions require: the background brain.</description>
+      <content:encoded><![CDATA[<h3 id="hammock-driven-developmenthttpswwwyoutubecomwatchvf84n5ofozbc"><a href="https://www.youtube.com/watch?v=f84n5oFoZBc">Hammock Driven Development</a></h3>
+<p>Rich Hickey goes into the details about how he solves hard problems by utilizing the part of our brains that evolution created for to the deep connections abstractions require: the background brain.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Are We There Yet?</title>
+      <link>http://localhost:1313/learning/are_we_there_yet/</link>
+      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/are_we_there_yet/</guid>
+      <description>Are We There Yet Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher Alfred North Whitehead, that does.</description>
+      <content:encoded><![CDATA[<h3 id="are-we-there-yethttpswwwyoutubecomwatchvscepu1cs4l0"><a href="https://www.youtube.com/watch?v=ScEPu1cs4l0">Are We There Yet</a></h3>
+<p>Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher <a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead">Alfred North Whitehead</a>, that does.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] Design is an Island</title>
+      <link>http://localhost:1313/learning/design_is_an_island/</link>
+      <pubDate>Sat, 18 Apr 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_is_an_island/</guid>
+      <description>Design is an Island Some of the most impactful learning materials aren&amp;rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</description>
+      <content:encoded><![CDATA[<h3 id="design-is-an-islandhttpstidyfirstsubstackcompdesign-is-an-island"><a href="https://tidyfirst.substack.com/p/design-is-an-island">Design is an Island</a></h3>
+<p>Some of the most impactful learning materials aren&rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] Programmers Don&#39;t Read Books -- But You Should</title>
+      <link>http://localhost:1313/learning/programmers_should_read_books/</link>
+      <pubDate>Mon, 28 Apr 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/programmers_should_read_books/</guid>
+      <description>Programmers Don&amp;rsquo;t Read Books &amp;ndash; But You Should Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his recommended reading list.</description>
+      <content:encoded><![CDATA[<h3 id="programmers-dont-read-books----but-you-shouldhttpsblogcodinghorrorcomprogrammers-dont-read-books-but-you-should"><a href="https://blog.codinghorror.com/programmers-dont-read-books-but-you-should/">Programmers Don&rsquo;t Read Books &ndash; But You Should</a></h3>
+<p>Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his <a href="https://blog.codinghorror.com/recommended-reading-for-developers/">recommended reading list</a>.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Paper] Better Testing, Worse Quality?</title>
+      <link>http://localhost:1313/learning/better_testing_worse_quality/</link>
+      <pubDate>Sat, 01 Dec 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/better_testing_worse_quality/</guid>
+      <description>Better Testing, Worse Quality? Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</description>
+      <content:encoded><![CDATA[<h3 id="better-testing-worse-qualityhttpsciteseerxistpsuedudocumentrepidrep1typepdfdoi309d45cb667d5ce43365bc30a5e82f118f42b4d0"><a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=309d45cb667d5ce43365bc30a5e82f118f42b4d0">Better Testing, Worse Quality?</a></h3>
+<p>Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] In Defense of Not-Invented-Here Syndrome</title>
+      <link>http://localhost:1313/learning/defense_of_nih/</link>
+      <pubDate>Mon, 01 Oct 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/defense_of_nih/</guid>
+      <description>In Defense of Not-Invented-Here Syndrome Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&amp;rsquo;t. Like all software &amp;rsquo;laws,&amp;rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.&#xA;Related Hacker News Discussion (2023) </description>
+      <content:encoded><![CDATA[<h3 id="in-defense-of-not-invented-here-syndromehttpswwwjoelonsoftwarecom20011014in-defense-of-not-invented-here-syndrome"><a href="https://www.joelonsoftware.com/2001/10/14/in-defense-of-not-invented-here-syndrome/">In Defense of Not-Invented-Here Syndrome</a></h3>
+<p>Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&rsquo;t. Like all software &rsquo;laws,&rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34750382">Hacker News Discussion (2023)</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Book] The Mythical Man-Month: Essays on Software Engineering</title>
+      <link>http://localhost:1313/learning/the_mythical_man_month/</link>
+      <pubDate>Fri, 01 Aug 1975 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/the_mythical_man_month/</guid>
+      <description>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his reading list:&#xA;&amp;ldquo;Computers may change, but people don&amp;rsquo;t.&amp;rdquo;&#xA;&amp;mdash; Jeff Atwood</description>
+      <content:encoded><![CDATA[<h3 id="the-mythical-man-month-essays-on-software-engineering-anniversary-editionhttpswwwthriftbookscomwthe-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr245869"><a href="https://www.thriftbooks.com/w/the-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr/245869/">The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</a></h3>
+<p>A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his <a href="">reading list</a>:</p>
+<blockquote>
+<p>&ldquo;Computers may change, but people don&rsquo;t.&rdquo;</p>
+<p>&mdash; Jeff Atwood</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Podcast] The Idealcast with Gene Kim</title>
+      <link>http://localhost:1313/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
+      <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
+<p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>
+<h3 id="elisabeth-hendrickson">Elisabeth Hendrickson</h3>
+<ul>
+<li>Episode 3: Achieving Better Outcomes through Structure</li>
+<li>Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&rsquo;s DevOps Enterprise Summit Presentations</li>
+</ul>
+<h3 id="dr-steven-spear">Dr. Steven Spear</h3>
+<ul>
+<li>Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1)</li>
+<li>Episode 6: (Dispatch from the Scenius) Dr. Steve Spear&rsquo;s 2019 and 2020 DevOps Enterprise Summit Talks on Rapid, Distributed, Dynamic Learning.</li>
+<li>Episode 7: The Topography of Problems and the Importance of Distributed Problem Solving (Part 2)</li>
+</ul>
+<h3 id="dr-ron-westrum">Dr. Ron Westrum</h3>
+<ul>
+<li>Episode 17: The Sociology and Typologies of Organizations, and Technical Maestros with Dr. Ron Westrum</li>
+<li>Episode 18: Patterns of Generative Cultures: How They Can Be Destroyed and the Importance of Trust with Dr. Ron Westrum</li>
+</ul>
+<h3 id="scott-havens">Scott Havens</h3>
+<ul>
+<li>Episode 22: (Dispatch from the Scenius) Fabulous Fortunes, Fewer Failures, and Faster Fixes from Functional Fundamentals</li>
+<li>Episode 23: Simplifying The Inventory Management Systems at the World’s Largest Retailer Using Functional Programming Principles</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

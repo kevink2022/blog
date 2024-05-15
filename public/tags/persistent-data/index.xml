@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Persistent-Data on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/persistent-data/</link>
+    <description>Recent content in Persistent-Data on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Thu, 17 Sep 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/persistent-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Video] [Essentials] Are We There Yet?</title>
+      <link>http://localhost:1313/learning/are_we_there_yet/</link>
+      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/are_we_there_yet/</guid>
+      <description>Are We There Yet Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher Alfred North Whitehead, that does.</description>
+      <content:encoded><![CDATA[<h3 id="are-we-there-yethttpswwwyoutubecomwatchvscepu1cs4l0"><a href="https://www.youtube.com/watch?v=ScEPu1cs4l0">Are We There Yet</a></h3>
+<p>Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher <a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead">Alfred North Whitehead</a>, that does.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

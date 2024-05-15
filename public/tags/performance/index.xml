@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Performance on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/performance/</link>
+    <description>Recent content in Performance on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Video] Code Aesthetic</title>
+      <link>http://localhost:1313/learning/code_aesthetic/</link>
+      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/code_aesthetic/</guid>
+      <description>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:&#xA;Why You Shouldn&amp;rsquo;t Nest Your Code Highlights how simply limiting the amount you nest your code will force you to write better code.&#xA;Don&amp;rsquo;t Write Comments In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</description>
+      <content:encoded><![CDATA[<p>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:</p>
+<h3 id="why-you-shouldnt-nest-your-codehttpswwwyoutubecomwatchvcfrhgnuxg-4"><a href="https://www.youtube.com/watch?v=CFRhGnuXG-4">Why You Shouldn&rsquo;t Nest Your Code</a></h3>
+<p>Highlights how simply limiting the amount you nest your code will force you to write better code.</p>
+<h3 id="dont-write-commentshttpswwwyoutubecomwatchvbf7vdbbobua"><a href="https://www.youtube.com/watch?v=Bf7vDBBOBUA">Don&rsquo;t Write Comments</a></h3>
+<p>In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</p>
+<h3 id="dependency-injection-the-best-patternhttpswwwyoutubecomcodeaestheticvideos"><a href="https://www.youtube.com/@CodeAesthetic/videos">Dependency Injection, The Best Pattern</a></h3>
+<p>Great visualization and introduction to the many strengths and benefits of dependency injection.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Organizations on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/organizations/</link>
+    <description>Recent content in Organizations on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Sat, 01 Dec 2001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/organizations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Paper] Better Testing, Worse Quality?</title>
+      <link>http://localhost:1313/learning/better_testing_worse_quality/</link>
+      <pubDate>Sat, 01 Dec 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/better_testing_worse_quality/</guid>
+      <description>Better Testing, Worse Quality? Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</description>
+      <content:encoded><![CDATA[<h3 id="better-testing-worse-qualityhttpsciteseerxistpsuedudocumentrepidrep1typepdfdoi309d45cb667d5ce43365bc30a5e82f118f42b4d0"><a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=309d45cb667d5ce43365bc30a5e82f118f42b4d0">Better Testing, Worse Quality?</a></h3>
+<p>Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] In Defense of Not-Invented-Here Syndrome</title>
+      <link>http://localhost:1313/learning/defense_of_nih/</link>
+      <pubDate>Mon, 01 Oct 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/defense_of_nih/</guid>
+      <description>In Defense of Not-Invented-Here Syndrome Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&amp;rsquo;t. Like all software &amp;rsquo;laws,&amp;rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.&#xA;Related Hacker News Discussion (2023) </description>
+      <content:encoded><![CDATA[<h3 id="in-defense-of-not-invented-here-syndromehttpswwwjoelonsoftwarecom20011014in-defense-of-not-invented-here-syndrome"><a href="https://www.joelonsoftware.com/2001/10/14/in-defense-of-not-invented-here-syndrome/">In Defense of Not-Invented-Here Syndrome</a></h3>
+<p>Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&rsquo;t. Like all software &rsquo;laws,&rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=34750382">Hacker News Discussion (2023)</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Paper] Nobody Ever Gets Credit for Fixing Problems that Never Happened: Creating and Sustaining Process Improvement</title>
+      <link>http://localhost:1313/learning/fixing_problems_before_they_happen/</link>
+      <pubDate>Fri, 01 Jun 2001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/fixing_problems_before_they_happen/</guid>
+      <description>Nobody Ever Gets Credit for Fixing Problems that Never Happened: Creating and Sustaining Process Improvement A deep look into the common pitfalls of trying to work harder instead of work smarter.</description>
+      <content:encoded><![CDATA[<h3 id="nobody-ever-gets-credit-for-fixing-problems-that-never-happened-creating-and-sustaining-process-improvementhttpswebmitedunelsonrwwwrepenningsterman_cmr_su01_pdf"><a href="https://web.mit.edu/nelsonr/www/Repenning=Sterman_CMR_su01_.pdf">Nobody Ever Gets Credit for Fixing Problems that Never Happened: Creating and Sustaining Process Improvement</a></h3>
+<p>A deep look into the common pitfalls of trying to work harder instead of work smarter.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Book] The Mythical Man-Month: Essays on Software Engineering</title>
+      <link>http://localhost:1313/learning/the_mythical_man_month/</link>
+      <pubDate>Fri, 01 Aug 1975 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/the_mythical_man_month/</guid>
+      <description>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his reading list:&#xA;&amp;ldquo;Computers may change, but people don&amp;rsquo;t.&amp;rdquo;&#xA;&amp;mdash; Jeff Atwood</description>
+      <content:encoded><![CDATA[<h3 id="the-mythical-man-month-essays-on-software-engineering-anniversary-editionhttpswwwthriftbookscomwthe-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr245869"><a href="https://www.thriftbooks.com/w/the-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr/245869/">The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</a></h3>
+<p>A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his <a href="">reading list</a>:</p>
+<blockquote>
+<p>&ldquo;Computers may change, but people don&rsquo;t.&rdquo;</p>
+<p>&mdash; Jeff Atwood</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Podcast] The Idealcast with Gene Kim</title>
+      <link>http://localhost:1313/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
+      <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
+<p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>
+<h3 id="elisabeth-hendrickson">Elisabeth Hendrickson</h3>
+<ul>
+<li>Episode 3: Achieving Better Outcomes through Structure</li>
+<li>Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&rsquo;s DevOps Enterprise Summit Presentations</li>
+</ul>
+<h3 id="dr-steven-spear">Dr. Steven Spear</h3>
+<ul>
+<li>Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1)</li>
+<li>Episode 6: (Dispatch from the Scenius) Dr. Steve Spear&rsquo;s 2019 and 2020 DevOps Enterprise Summit Talks on Rapid, Distributed, Dynamic Learning.</li>
+<li>Episode 7: The Topography of Problems and the Importance of Distributed Problem Solving (Part 2)</li>
+</ul>
+<h3 id="dr-ron-westrum">Dr. Ron Westrum</h3>
+<ul>
+<li>Episode 17: The Sociology and Typologies of Organizations, and Technical Maestros with Dr. Ron Westrum</li>
+<li>Episode 18: Patterns of Generative Cultures: How They Can Be Destroyed and the Importance of Trust with Dr. Ron Westrum</li>
+</ul>
+<h3 id="scott-havens">Scott Havens</h3>
+<ul>
+<li>Episode 22: (Dispatch from the Scenius) Fabulous Fortunes, Fewer Failures, and Faster Fixes from Functional Fundamentals</li>
+<li>Episode 23: Simplifying The Inventory Management Systems at the World’s Largest Retailer Using Functional Programming Principles</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

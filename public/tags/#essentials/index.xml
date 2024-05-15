@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>#Essentials on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/%23essentials/</link>
+    <description>Recent content in #Essentials on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Tue, 20 Sep 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%23essentials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Essentials] [Video] Simple Made Easy</title>
+      <link>http://localhost:1313/learning/simple_made_easy/</link>
+      <pubDate>Tue, 20 Sep 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/simple_made_easy/</guid>
+      <description>Simple Made Easy Rich Hickey&amp;rsquo;s presentation at Strangeloop 2011 is an absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is more likely then not to&#xA;Related [[simplicity_matters|Simplicity Matters]] Notes This general concept of simple vs easy has to be the biggest influence on how I think about software, and it was the key that finally unblocked me from writing large systems without inevitable &amp;lsquo;inviting the elephant&amp;rsquo; as Rich describes in 2012.</description>
+      <content:encoded><![CDATA[<h3 id="simple-made-easyhttpswwwyoutubecomwatchvsxdougdseq4"><a href="https://www.youtube.com/watch?v=SxdOUGdseq4">Simple Made Easy</a></h3>
+<p>Rich Hickey&rsquo;s presentation at Strangeloop 2011 is an absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is more likely then not to</p>
+<h3 id="related">Related</h3>
+<ul>
+<li>[[simplicity_matters|Simplicity Matters]]</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<p>This general concept of simple vs easy has to be the biggest influence on how I think about software, and it was the key that finally unblocked me from writing large systems without inevitable &lsquo;inviting the elephant&rsquo; as Rich describes in 2012.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

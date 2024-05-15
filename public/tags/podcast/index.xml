@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Podcast on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/podcast/</link>
+    <description>Recent content in Podcast on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <atom:link href="http://localhost:1313/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Podcast] The Idealcast with Gene Kim</title>
+      <link>http://localhost:1313/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
+      <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
+<p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>
+<h3 id="elisabeth-hendrickson">Elisabeth Hendrickson</h3>
+<ul>
+<li>Episode 3: Achieving Better Outcomes through Structure</li>
+<li>Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&rsquo;s DevOps Enterprise Summit Presentations</li>
+</ul>
+<h3 id="dr-steven-spear">Dr. Steven Spear</h3>
+<ul>
+<li>Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1)</li>
+<li>Episode 6: (Dispatch from the Scenius) Dr. Steve Spear&rsquo;s 2019 and 2020 DevOps Enterprise Summit Talks on Rapid, Distributed, Dynamic Learning.</li>
+<li>Episode 7: The Topography of Problems and the Importance of Distributed Problem Solving (Part 2)</li>
+</ul>
+<h3 id="dr-ron-westrum">Dr. Ron Westrum</h3>
+<ul>
+<li>Episode 17: The Sociology and Typologies of Organizations, and Technical Maestros with Dr. Ron Westrum</li>
+<li>Episode 18: Patterns of Generative Cultures: How They Can Be Destroyed and the Importance of Trust with Dr. Ron Westrum</li>
+</ul>
+<h3 id="scott-havens">Scott Havens</h3>
+<ul>
+<li>Episode 22: (Dispatch from the Scenius) Fabulous Fortunes, Fewer Failures, and Faster Fixes from Functional Fundamentals</li>
+<li>Episode 23: Simplifying The Inventory Management Systems at the World’s Largest Retailer Using Functional Programming Principles</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

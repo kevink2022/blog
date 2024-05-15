@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Design on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/design/</link>
+    <description>Recent content in Design on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Sat, 04 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I learned better think by thinking less and writing more.</title>
+      <link>http://localhost:1313/blog/writing_as_thinking/</link>
+      <pubDate>Sat, 04 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/writing_as_thinking/</guid>
+      <description>&amp;ldquo;A book, then, or a computer, or a program comes into existence first as an ideal construct, built outside time and space, but complete in the mind of the author. It is realized in time and space, by pen, ink, and paper, or by wire, silicon, and ferrite. &amp;hellip;the incompleteness and inconsistencies of our ideas become clear only in implementation&amp;rdquo;&#xA;&amp;mdash; Frederick P. Brooks, The Mythical Man-Month, p15&#xA;I don&amp;rsquo;t know about you, but most of my ideas are not at all complete when their still in my mind.</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>&ldquo;A book, then, or a computer, or a program comes into existence first as an ideal construct, built outside time and space, but complete in the mind of the author. It is realized in time and space, by pen, ink, and paper, or by wire, silicon, and ferrite. &hellip;the incompleteness and inconsistencies of our ideas become clear only in implementation&rdquo;</p>
+<p>&mdash; Frederick P. Brooks, The Mythical Man-Month, p15</p>
+</blockquote>
+<p>I don&rsquo;t know about you, but most of my ideas are <em>not at all</em> complete when their still in my mind. I found this out the hard way many times when trying to code my ideas, and then found it much, much easier when poking those holes while it was still on my notebook.</p>
+<p>Often, those holes weren&rsquo;t poked until a few days later.</p>
+<p>Why have formal docs picture, first 2 paragraphs, mmm page 111</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Essentials on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/essentials/</link>
+    <description>Recent content in Essentials on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/essentials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Article] [Essentials] 10 Things Software Developers Should Learn about Learning</title>
+      <link>http://localhost:1313/learning/ten_things_about_learning/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/ten_things_about_learning/</guid>
+      <description>10 Things Software Developers Should Learn about Learning In an industry where constant learning is so important, maybe we should think a little bit about how we&amp;rsquo;re learning before we spend our lives doing it.&#xA;Related PDF Version Hacker News Discussion </description>
+      <content:encoded><![CDATA[<h3 id="10-things-software-developers-should-learn-about-learninghttpscacmacmorgresearch10-things-software-developers-should-learn-about-learning"><a href="https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/">10 Things Software Developers Should Learn about Learning</a></h3>
+<p>In an industry where constant learning is so important, maybe we should think a little bit about how we&rsquo;re learning before we spend our lives doing it.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://dl.acm.org/doi/pdf/10.1145/3584859">PDF Version</a></li>
+<li><a href="https://news.ycombinator.com/item?id=38777647">Hacker News Discussion</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Design, Composition, and Performance</title>
+      <link>http://localhost:1313/learning/design_composition_performance/</link>
+      <pubDate>Wed, 03 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_composition_performance/</guid>
+      <description>Design, Composition, and Performance Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</description>
+      <content:encoded><![CDATA[<h3 id="design-composition-and-performancehttpswwwyoutubecomwatchvqcwqnjxqfmy"><a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a></h3>
+<p>Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Simple Made Easy</title>
+      <link>http://localhost:1313/learning/simple_made_easy/</link>
+      <pubDate>Tue, 20 Sep 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/simple_made_easy/</guid>
+      <description>Simple Made Easy An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &amp;lsquo;inviting the elephant&amp;rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</description>
+      <content:encoded><![CDATA[<h3 id="simple-made-easyhttpswwwyoutubecomwatchvsxdougdseq4"><a href="https://www.youtube.com/watch?v=SxdOUGdseq4">Simple Made Easy</a></h3>
+<p>An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &lsquo;inviting the elephant&rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li>[[simplicity_matters|Simplicity Matters]]</li>
+</ul>
+<h3 id="notes">Notes</h3>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Are We There Yet?</title>
+      <link>http://localhost:1313/learning/are_we_there_yet/</link>
+      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/are_we_there_yet/</guid>
+      <description>Are We There Yet Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher Alfred North Whitehead, that does.</description>
+      <content:encoded><![CDATA[<h3 id="are-we-there-yethttpswwwyoutubecomwatchvscepu1cs4l0"><a href="https://www.youtube.com/watch?v=ScEPu1cs4l0">Are We There Yet</a></h3>
+<p>Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher <a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead">Alfred North Whitehead</a>, that does.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Article on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/article/</link>
+    <description>Recent content in Article on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/article/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Article] [Essentials] 10 Things Software Developers Should Learn about Learning</title>
+      <link>http://localhost:1313/learning/ten_things_about_learning/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/ten_things_about_learning/</guid>
+      <description>10 Things Software Developers Should Learn about Learning In an industry where constant learning is so important, maybe we should think a little bit about how we&amp;rsquo;re learning before we spend our lives doing it.&#xA;Related PDF Version Hacker News Discussion </description>
+      <content:encoded><![CDATA[<h3 id="10-things-software-developers-should-learn-about-learninghttpscacmacmorgresearch10-things-software-developers-should-learn-about-learning"><a href="https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/">10 Things Software Developers Should Learn about Learning</a></h3>
+<p>In an industry where constant learning is so important, maybe we should think a little bit about how we&rsquo;re learning before we spend our lives doing it.</p>
+<h3 id="related">Related</h3>
+<ul>
+<li><a href="https://dl.acm.org/doi/pdf/10.1145/3584859">PDF Version</a></li>
+<li><a href="https://news.ycombinator.com/item?id=38777647">Hacker News Discussion</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

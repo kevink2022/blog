@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Software-Design on Kevin Kelly</title>
+    <link>http://localhost:1313/tags/software-design/</link>
+    <description>Recent content in Software-Design on Kevin Kelly</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Kevin Kelly (CC BY 4.0)</copyright>
+    <lastBuildDate>Thu, 02 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/software-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boomic Architecture: Composers and Instruments</title>
+      <link>http://localhost:1313/blog/boomic_architecture/</link>
+      <pubDate>Thu, 02 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/boomic_architecture/</guid>
+      <description>The first time I set out to make Boomic, I didn&amp;rsquo;t think about architecture at all. The app quickly became a coupled disaster, and making the smallest changes felt daunting. This time around, I committed to learning and understanding software design and architecture. Learn to build a composable system, designed for change. This is how I started, where I went wrong, and where I am now.&#xA;I ended up starting my development based on the layered arch from Jacob Bartlett&amp;rsquo;s excellent post on Modular Architecture for Apps .</description>
+      <content:encoded><![CDATA[<p>The first time I set out to make Boomic, I didn&rsquo;t think about architecture at all. The app quickly became a coupled disaster, and making the smallest changes felt daunting. This time around, I committed to learning and understanding software design and architecture. Learn to build a composable system, designed for change. This is how I started, where I went wrong, and where I am now.</p>
+<p>I ended up starting my development based on the layered arch from Jacob Bartlett&rsquo;s excellent post on <a href="https://jacobbartlett.substack.com/p/modular-architecture-for-apps">Modular Architecture for Apps</a> . I was closely following the architecture of their <a href="https://github.com/jacobsapps/bev17/tree/main?tab=readme-ov-file">Bev Sample App</a>, using the Repository pattern, featured in his series on <a href="https://jacobbartlett.substack.com/p/async-unit-testing-in-swift-the-comprehensive">Async Unit Testing</a>. I highly recommend <a href="https://jacobbartlett.substack.com/">Jacobs Tech Tavern</a> to any iOS app developers.</p>
+<p>The &lsquo;Repository Pattern&rsquo; is where you create a single <code>Repository</code> component that serves the data to the UI. The UI doesn&rsquo;t have to worry about where the data is coming from, while the repository can combine data from different sources. In Bev, Jacob shows a use case of grabbing local, cached data from a database, while fetching the most up-to-date data from an API. Here&rsquo;s cut down version of what this looks like:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">returnMultipleTimes</span>() async <span style="color:#66d9ef">throws</span> {
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> beers = <span style="color:#66d9ef">try</span>? await db?.getBeers() {
+</span></span><span style="display:flex;"><span>		beersPublisher.send(beers)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">do</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">let</span> beers = <span style="color:#66d9ef">try</span> await api.getAllBeers()
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">try</span>? await db?.save(beers: beers)
+</span></span><span style="display:flex;"><span>		beersPublisher.send(beers)
+</span></span><span style="display:flex;"><span>	} <span style="color:#66d9ef">catch</span> { <span style="color:#75715e">/* handle error */</span> }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div><p>My first goal for Boomic was to simply load audio files from a local directory into a <code>Database</code> as <code>Song</code> objects, then load them from the database onto the UI. I needed some kind of <code>MediaFileInterface</code> to load audio files from a directory and extract their metadata into the <code>Song</code> objects. Thinking that the database was likely the only thing that needed to load files this way, as the rest of my app could just deal with <code>Song</code> objects, I went with a design like this:</p>
+<p><img src="/images/original_database.svg" alt="Original Database with coupled file interface"></p>
+<p>It was after watching Rich Hickey&rsquo;s <a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a> that I realized what kind of mistake I was making with the database.</p>
+<p>I thought that simply by using Swift&rsquo;s protocols, I was keeping these components decoupled. I could easily switch from a local to a remote directory with the same <code>MediaFileInterface</code> protocol. But I was still coupling the Database to the fact that it had to know where it was getting its <code>Song</code> objects from. This would&rsquo;ve have flown under my radar, until I thought about Apple Music. A long-term goal of Boomic is to be able to sync your Apple Music library alongside your local library. Since I want to have the same tags and ratings for both Apple Music and local songs, I wanted to store them in the same database. Assuming I did that that now, the database would look like this:</p>
+<p><img src="/images/original_database_expanded.svg" alt="Original Database with two coupled file interfaces"></p>
+<p>I would need to edit the database itself, its public interface, and the repository that calls it. By just making the database aware of a protocol to get new songs, I was giving the database an extra responsibility: don&rsquo;t just store the songs, but get the new ones as well. Lets remove that separate responsibility and see what it looks like:</p>
+<p><img src="/images/decoupled_database.svg" alt="Update, decoupled database with separate file interface"></p>
+<p>Now, the <code>Repository</code> can simply have two different functions for each different source. The <code>Database</code> itself can be designed in a much simpler, more generic manner, without worrying where it is getting new data from. More importantly, when I want to add the Apple Music support, I only have to change the app-specific <code>Repository</code>, instead of making my way down the stack, adjusting each component to fit the new use case. I simply a write a new composition of a new component, the <code>AppleMusicInterface</code> and an old one, the <code>Database</code>.</p>
+<hr>
+<h3 id="breaking-it-down-composers-and-instruments">Breaking it down: Composers and Instruments</h3>
+<p>I really liked the general repository pattern, and felt it could be extended outside the realm of data operations. As I mentioned earlier, it was watching the aforementioned <a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a> when the value of the repository pattern really clicked. So, lets borrow some vocabulary (albeit in a slightly different way) and see how it feels:</p>
+<ul>
+<li><strong>Instruments:</strong> Single responsibility, usually generic components.</li>
+<li><strong>Composers</strong>: Components that coordinate one or more instruments to achieve something specific.</li>
+</ul>
+<p>In my app so far, the <code>Database</code>, <code>MediaFileInterface</code>, <code>AppleMusicInterface</code>, and any other sources of data such as an <code>ImageCache</code> are the instruments. Each instrument does their specific tasks, is completely decoupled from the others, and can be reused in other parts of the program (for example, using <code>AppleMusicInterface</code> to grab the rest of an album from one song in the library). Then, the <code>Repository</code> is a composer that handles the specific needs of my app by, well, composing these instruments together.</p>
+<hr>
+<h3 id="composers-as-instruments">Composers as Instruments.</h3>
+<p>I want to make one thing about this design philosophy clear: Just because something is an instrument, doesn&rsquo;t mean it cannot be composed of other instruments. An example of this is how I am currently storing transactions.</p>
+<p>To store transactions as they&rsquo;re received, I built a generic <code>LogStore</code> class that saves <code>Codable</code> objects at a key in the order they&rsquo;re received, like a standard log. This is pretty clearly an instrument: single-responsibility, generic, ready to be composed into various purpose specific components. But the <code>LogStore</code> itself was composed with another instrument: the <code>SimpleStore</code>.</p>
+<p>The <code>SimpleStore</code> itself just saves and overwrites the object saved at its key. So the most basic implementation of a <code>LogStore&lt;T&gt;</code> can just use a single <code>SimpleStore&lt;[T]&gt;</code>, which is exactly what I have done for now as my proof-of-concept:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LogStore</span>&lt;Log: Loggable&gt; {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> storage: SimpleStore<span style="color:#f92672">&lt;</span>[Log]<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">init</span>(key: String) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.storage = SimpleStore(key: key)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">save</span>(<span style="color:#66d9ef">_</span> log: Log) async <span style="color:#66d9ef">throws</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> pastLogs = <span style="color:#66d9ef">try</span> await storage.load()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> logs = pastLogs ?? []
+</span></span><span style="display:flex;"><span>        logs.insert(log, at: <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> await storage.save(logs)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div><p>This is pretty inefficient, since as logs are written to disk right away. A better version of this would be using multiple simple stores, with a cache <code>SimpleStore</code> for quickly saving of the most recent logs, and then periodically merging them in with the older logs from another <code>SimpleStore</code> in the background. Either way, the <code>LogStore</code> here an example of a composer: composing one or more instances of the generic <code>SimpleStore</code> instrument. But, it itself is a generic, composable instrument, that I use to store transactions now, and probably logs in the future.</p>
+<p>I think Rich Hickey really illustrates this point well at from <a href="https://youtu.be/QCwqnjxqfmY?t=2479&amp;si=jhGajdysPBKZE5As">41:19-42:42</a> in, you guessed it, Design, Composition, and Performance! <a href="https://www.arturia.com/stories/yvesusson-insideamodularmind">Yves Usson</a>, who designed the synthesizer, composed the it out of machines that themselves individual instruments, or at least would be in this current model. Then, the synthesizer itself is available to musicians to use in composition with other instruments.</p>
+<hr>
+<h3 id="isnt-this-obvious">Isn&rsquo;t this obvious?</h3>
+<p>Isn&rsquo;t this just another way of saying &lsquo;we should be building composable systems?&rsquo; Yeah, pretty much, but I think there is a lot of value in reframing the way we think about our systems with specific terminology and strong analogies. In just writing this post and applying this thinking to the system that inspired it, I realized that the <code>MediaFileInterface</code>, which doesn&rsquo;t necessarily violate the Single Responsibility Principle (translate all the files in a root directory into <code>Song</code> objects), is both not generalizable, and could be broken apart into two separate, more generalizable, instruments.</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// old</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> newSongs = MediaFileInterface().newSongs(existing: existingSongs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// new</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> knownFiles = existingSongs.map { $0.file }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> newFiles = FileInterface().all([<span style="color:#e6db74">&#34;mp3&#34;</span>, <span style="color:#e6db74">&#34;flac&#34;</span>], ignoring: knownFiles)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> newSongs = newFiles.map { Song(fromFile: $0) }</span></span></code></pre></div><p>For me, it really is that reframing that can bring a lot of value. I was comfortable calling the <code>MediaFileInterface</code> a simple, single responsibility component that only had one public function, and it was only 60 lines. But it was a specific component I built for a specific purpose. When I want to play guitar in a new key, do I buy a whole new guitar? No, I take my existing guitar, and just put on, <em>or compose it with,</em> a capo!</p>
+<p>So, after reframing the question, I was not comfortable calling the <code>MediaFileInterface</code> a good instrument. Which led me to asking &ldquo;Could this be composed of simpler instruments?&rdquo; and &ldquo;Could this be more generic?&rdquo; and ended with me building the new, more generic <code>FileInterface</code>, which I am already using in another part of the <code>Repository</code>.</p>
+<p>To summarize, I think we can build the vast majority of what we create with generic instruments and a few composers. Whenever we do something specific, we should try to break it down into generic instruments, and build those instruments with simpler and simpler parts. This will give us many a huge toolbox to compose with, and we can easily write tests for most of the instruments, giving our compositions strong foundations.</p>
+<hr>
+<h3 id="in-practice">In Practice</h3>
+<p>Finally back to the app, what does Boomic look like today. I am still some time away from the MVP, and so plan on updating this part of the post down the road. Especially if (more likely when) I find I didn&rsquo;t have as complete of an understanding as I thought I had. But here is the current structure, still relatively flat but much, much less coupled then its predecessor:</p>
+<p><img src="/images/boomic_arc.svg" alt="boomic_architecture"></p>
+<ul>
+<li><strong><code>Repository</code></strong>: Composer of the data instruments, specifically for the UI.
+<ul>
+<li><strong><code>Transactor</code></strong>: Serially stores library transactions, and publishes a new <code>DataBasis</code> to reflect that transaction.
+<ul>
+<li><strong><code>DataBasis</code></strong>: Immutable value of the entire library.  Progression of state tracked by the <code>Transactor</code>.</li>
+</ul>
+</li>
+<li><strong><code>QueryEngine</code></strong>: Queries a <code>DataBasis</code>.</li>
+<li><strong><code>FileInterface</code></strong>: Provides enumerations of specified file extensions from a root directory.</li>
+<li><strong><code>MetadataLoader</code></strong>: Extracts metadata from audio files, both embedded and from the surrounding files.</li>
+</ul>
+</li>
+<li><strong><code>Player</code></strong>: Composer of the audio playback instruments. Has a fair amount of state.
+<ul>
+<li><strong><code>Engine</code></strong>: The interface to the library that makes the system calls to playback audio. Each song gets its own engine, allowing for pre-loading.</li>
+<li><strong><code>Queue</code></strong>: An immutable value representing the queue. Progression of state tracked by the <code>Player</code>.</li>
+<li><strong><code>Mixer</code></strong>: Applies EQ and Effects to the <code>Engine</code>.</li>
+</ul>
+</li>
+<li><strong><code>ImageCache</code></strong>: Shared cache, keys embedded album art with MD5 hashes to prevent initializing the same images over and over.</li>
+</ul>
+<h5 id="immediate-plans">Immediate Plans</h5>
+<ul>
+<li>Create a <code>LiveQueryEngine</code> that tracks changes and updates views when the <code>DataBasis</code> updates.</li>
+<li>Have the <code>Player</code> directly access the <code>Repository</code> instead of just sharing the <code>ImageCache</code> so it can respond to <code>DataBasis</code> updates.</li>
+<li>Look into making the <code>QueryEngine</code>, <code>MetadataLoader</code>,  <code>Engine</code>, and <code>Queue</code> classes more generic. They all currently rely on this app&rsquo;s custom data types (even if by name only), such as <code>Song</code> or <code>DataBasis</code> objects. From the instrument/composer point of view, this is generally bad practice, though may be unavoidable in certain cases.</li>
+</ul>
+<p>There is a lot more work to do to make the immutable <code>DataBasis</code> pattern work with Swifts observation frameworks, and make the UI reactive to specific changes. I have reflected on whether keeping the pattern is worth it and have decided to continue it. More on why I am storing data this way in a future blogpost.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Code Aesthetic</title>
+      <link>http://localhost:1313/learning/code_aesthetic/</link>
+      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/code_aesthetic/</guid>
+      <description>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:&#xA;Why You Shouldn&amp;rsquo;t Nest Your Code Highlights how simply limiting the amount you nest your code will force you to write better code.&#xA;Don&amp;rsquo;t Write Comments In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</description>
+      <content:encoded><![CDATA[<p>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:</p>
+<h3 id="why-you-shouldnt-nest-your-codehttpswwwyoutubecomwatchvcfrhgnuxg-4"><a href="https://www.youtube.com/watch?v=CFRhGnuXG-4">Why You Shouldn&rsquo;t Nest Your Code</a></h3>
+<p>Highlights how simply limiting the amount you nest your code will force you to write better code.</p>
+<h3 id="dont-write-commentshttpswwwyoutubecomwatchvbf7vdbbobua"><a href="https://www.youtube.com/watch?v=Bf7vDBBOBUA">Don&rsquo;t Write Comments</a></h3>
+<p>In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</p>
+<h3 id="dependency-injection-the-best-patternhttpswwwyoutubecomcodeaestheticvideos"><a href="https://www.youtube.com/@CodeAesthetic/videos">Dependency Injection, The Best Pattern</a></h3>
+<p>Great visualization and introduction to the many strengths and benefits of dependency injection.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Design in Practice</title>
+      <link>http://localhost:1313/learning/design_in_practice/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_in_practice/</guid>
+      <description>Design in Practice Practical tools and methodologies that Rich and the Clojure/Datomic teams use in their design process, along with real world examples, such and project glossaries and the decision matrix.</description>
+      <content:encoded><![CDATA[<h3 id="design-in-practicehttpswwwyoutubecomwatchvc5qf2hjhlset1s"><a href="https://www.youtube.com/watch?v=c5QF2HjHLSE&amp;t=1s">Design in Practice</a></h3>
+<p>Practical tools and methodologies that Rich and the Clojure/Datomic teams use in their design process, along with real world examples, such and project glossaries and the decision matrix.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] John Carmack on Inlined Code</title>
+      <link>http://localhost:1313/learning/john_carmack_inlining/</link>
+      <pubDate>Fri, 26 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/john_carmack_inlining/</guid>
+      <description>John Carmack on Inlined Code A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&amp;rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</description>
+      <content:encoded><![CDATA[<h3 id="john-carmack-on-inlined-codehttpnumber-nonecomblowjohn_carmack_on_inlined_codehtml"><a href="http://number-none.com/blow/john_carmack_on_inlined_code.html">John Carmack on Inlined Code</a></h3>
+<p>A legend going over an the often ignored drawbacks of treating best practices, like organizing separate subroutines into functions, or DRY (don&rsquo;t repeat yourself), like a laws. Then later coming to the conclusion that the real culprit was uncontrolled state mutation all along.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Design, Composition, and Performance</title>
+      <link>http://localhost:1313/learning/design_composition_performance/</link>
+      <pubDate>Wed, 03 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_composition_performance/</guid>
+      <description>Design, Composition, and Performance Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</description>
+      <content:encoded><![CDATA[<h3 id="design-composition-and-performancehttpswwwyoutubecomwatchvqcwqnjxqfmy"><a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a></h3>
+<p>Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] Hammock Driven Development</title>
+      <link>http://localhost:1313/learning/hammock_driven_development/</link>
+      <pubDate>Mon, 25 Oct 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/hammock_driven_development/</guid>
+      <description>Hammock Driven Development Rich Hickey goes into the details about how he solves hard problems by utilizing the part of our brains that evolution created for to the deep connections abstractions require: the background brain.</description>
+      <content:encoded><![CDATA[<h3 id="hammock-driven-developmenthttpswwwyoutubecomwatchvf84n5ofozbc"><a href="https://www.youtube.com/watch?v=f84n5oFoZBc">Hammock Driven Development</a></h3>
+<p>Rich Hickey goes into the details about how he solves hard problems by utilizing the part of our brains that evolution created for to the deep connections abstractions require: the background brain.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Video] [Essentials] Are We There Yet?</title>
+      <link>http://localhost:1313/learning/are_we_there_yet/</link>
+      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/are_we_there_yet/</guid>
+      <description>Are We There Yet Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher Alfred North Whitehead, that does.</description>
+      <content:encoded><![CDATA[<h3 id="are-we-there-yethttpswwwyoutubecomwatchvscepu1cs4l0"><a href="https://www.youtube.com/watch?v=ScEPu1cs4l0">Are We There Yet</a></h3>
+<p>Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher <a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead">Alfred North Whitehead</a>, that does.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Blog] Design is an Island</title>
+      <link>http://localhost:1313/learning/design_is_an_island/</link>
+      <pubDate>Sat, 18 Apr 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/design_is_an_island/</guid>
+      <description>Design is an Island Some of the most impactful learning materials aren&amp;rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</description>
+      <content:encoded><![CDATA[<h3 id="design-is-an-islandhttpstidyfirstsubstackcompdesign-is-an-island"><a href="https://tidyfirst.substack.com/p/design-is-an-island">Design is an Island</a></h3>
+<p>Some of the most impactful learning materials aren&rsquo;t the works that change the way you think about a problem, but the works that help align your entire mindset to more accurately represent the current level, domain, or in this case, stage of a project. Kent Beck uses the metaphor of islands in a rising sea to describe two different mindsets: refining a design, or pivoting to a new one.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Book] The Mythical Man-Month: Essays on Software Engineering</title>
+      <link>http://localhost:1313/learning/the_mythical_man_month/</link>
+      <pubDate>Fri, 01 Aug 1975 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/the_mythical_man_month/</guid>
+      <description>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his reading list:&#xA;&amp;ldquo;Computers may change, but people don&amp;rsquo;t.&amp;rdquo;&#xA;&amp;mdash; Jeff Atwood</description>
+      <content:encoded><![CDATA[<h3 id="the-mythical-man-month-essays-on-software-engineering-anniversary-editionhttpswwwthriftbookscomwthe-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr245869"><a href="https://www.thriftbooks.com/w/the-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr/245869/">The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</a></h3>
+<p>A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his <a href="">reading list</a>:</p>
+<blockquote>
+<p>&ldquo;Computers may change, but people don&rsquo;t.&rdquo;</p>
+<p>&mdash; Jeff Atwood</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>[Podcast] The Idealcast with Gene Kim</title>
+      <link>http://localhost:1313/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
+      <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
+<p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>
+<h3 id="elisabeth-hendrickson">Elisabeth Hendrickson</h3>
+<ul>
+<li>Episode 3: Achieving Better Outcomes through Structure</li>
+<li>Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&rsquo;s DevOps Enterprise Summit Presentations</li>
+</ul>
+<h3 id="dr-steven-spear">Dr. Steven Spear</h3>
+<ul>
+<li>Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1)</li>
+<li>Episode 6: (Dispatch from the Scenius) Dr. Steve Spear&rsquo;s 2019 and 2020 DevOps Enterprise Summit Talks on Rapid, Distributed, Dynamic Learning.</li>
+<li>Episode 7: The Topography of Problems and the Importance of Distributed Problem Solving (Part 2)</li>
+</ul>
+<h3 id="dr-ron-westrum">Dr. Ron Westrum</h3>
+<ul>
+<li>Episode 17: The Sociology and Typologies of Organizations, and Technical Maestros with Dr. Ron Westrum</li>
+<li>Episode 18: Patterns of Generative Cultures: How They Can Be Destroyed and the Importance of Trust with Dr. Ron Westrum</li>
+</ul>
+<h3 id="scott-havens">Scott Havens</h3>
+<ul>
+<li>Episode 22: (Dispatch from the Scenius) Fabulous Fortunes, Fewer Failures, and Faster Fixes from Functional Fundamentals</li>
+<li>Episode 23: Simplifying The Inventory Management Systems at the World’s Largest Retailer Using Functional Programming Principles</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
