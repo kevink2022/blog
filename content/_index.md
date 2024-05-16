@@ -12,11 +12,11 @@ I am a Software Engineer with a B.S. in Computer Engineering from Penn State. Cu
 Professionally, I am most passionate about how we build software, both as individuals and as organizations. This has lead me to dive into topics such as how we can express and challenge ideas, how we can communicate those ideas, and how we can structure our organizations to facilitate successful communication. By far the biggest influences on my thinking here come from [Rich Hickey](/blog/tags/rich-hickey) and his many insightful keynotes, and the many great guests Gene Kim hosts on the [The Idealcast](/blog/learning/idealcast).
 
 If you want to get in touch, you can reach me via [email](mailto:kevink2019@gmail.com) or find me on [Github](https://github.com/kevink2022) and [LinkedIn](https://www.linkedin.com/in/kevink2019/). Currently not on any other socials.
-### Blog
+### [Blog](/blog/blog/)
 My general thoughts and mental models of the world, mostly about software and organizations, along with some project blogs about different design choices and why I am made them. Generally an exercise in challenging my unorganized thoughts and turning them into concrete beliefs and ideas. 
-### Learning
+### [Learning](/blog/learning/)
 The most interesting articles, blog posts, conference talks, podcasts, books, and whatever else I found that inspired, influenced my thinking, and I'd like to share with the world. Be sure to check out the [#essentials](/blog/tags/essentials) tag first.
-### Resume
+### [Resume](/blog/resume/)
 Currently looking for a new opportunity! Check out my experience, and what I am looking for in an organization here.
-### About me
-If you want to know what I am up to and passionate about outside of my professional life, check out this page.
+### [About me](/blog/about_me/)
+If you are interested to learn about what I am up to and passionate about outside of my professional life, check out this page.

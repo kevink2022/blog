@@ -60,11 +60,9 @@ January 2022 -- May 2022
 # What I am looking for in an organization
 I understand that in an ideal world, all organizations would follow software development principles and best practices. However, we live in a unideal world of capital, competition, deadlines, and security vulnerabilities. These *external pressures* often constrict an organizations choices. Time spent preparing for the far future is time wasted if the organization might cease to exist in the near future.
 
-However, most organizations that last will find themselves in periods where those external pressures subside, and then the *internal pressures* they control, conciously or not, drive the further direction of the organization. I firmly believe this is where organizations truly distinguish themselves, and by following strong principles, set themselves up for success. 
+However, most organizations that last will find themselves in periods where those external pressures subside, and then the *internal pressures* they control, consciously or not, drive the further direction of the organization. I firmly believe this is where organizations truly distinguish themselves, and by following strong principles, set themselves up for success. 
 
-When the external pressures begin to ramp up, the organization that prepared in the past, learned from its previous mistakes, and made multiplicative process improvements, will have a lot more room to maneuver. Meanwhile, the organization ignores past mistakes and focuses entirely on the next venture, will find itself completely constricted by external pressures, leading to at best an intense period of stress, and at worse, the collapse of the organization.
-
-I understand that external pressures can demand short-term thinking. But any professional relationship I enter with an organization that either explicitly encourages permanent short-term thinking, or even worse, doesn't understand the implicit effects of the internal pressures they unconsciously create, will not last.
+When the external pressures begin to ramp up, the organization that prepared in the past, learned from its previous mistakes, and made multiplicative process improvements, will have a lot more room to maneuver. Meanwhile, the organization ignores past mistakes and focuses entirely on the next venture will find itself completely constricted by external pressures, leading to at best an intense period of stress, and at worse, the collapse of the organization.
 
 Some of the ways I think mature software organizations are built to last are:
 - Aggressive testing, where developers aren't [too reliant on QA](/blog/learning/better_testing_worse_quality).
