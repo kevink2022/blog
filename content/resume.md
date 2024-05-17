@@ -57,16 +57,28 @@ January 2022 -- May 2022
 - Utilized **GDB** and **Valgrind** for debugging and memory safety.
 
 ---
-# What I am looking for in an organization
-I understand that in an ideal world, all organizations would follow software development principles and best practices. However, we live in a unideal world of capital, competition, deadlines, and security vulnerabilities. These *external pressures* often constrict an organizations choices. Time spent preparing for the far future is time wasted if the organization might cease to exist in the near future.
+# What I am looking for in a team
 
-However, most organizations that last will find themselves in periods where those external pressures subside, and then the *internal pressures* they control, consciously or not, drive the further direction of the organization. I firmly believe this is where organizations truly distinguish themselves, and by following strong principles, set themselves up for success. 
+> "Everything you do you are ignorant about in some way"
+> 
+> --- Dr. Steven Spear[^1]
 
-When the external pressures begin to ramp up, the organization that prepared in the past, learned from its previous mistakes, and made multiplicative process improvements, will have a lot more room to maneuver. Meanwhile, the organization ignores past mistakes and focuses entirely on the next venture will find itself completely constricted by external pressures, leading to at best an intense period of stress, and at worse, the collapse of the organization.
+I can be a bit stubborn sometimes. When I see something that I think can be improved, something that is likely hurting my organization, an obstacle in the way of our mission, it really bothers me. If I can't shake that feeling on my own, can't figure out why it is and why it works, I'm going to end up bringing it up at some point.
 
-Some of the ways I think mature software organizations are built to last are:
-- Aggressive testing, where developers aren't [too reliant on QA](/blog/learning/better_testing_worse_quality).
-- [Fast feedback loops](https://youtu.be/r2BFTXBundQ?t=503&si=QBm-rZdg97pn_Y2o) to avoid the pitfalls of rampant speculation.
-- Introspective, learning from past mistakes, and is willing to face and fix problems instead of avoiding them.
-- Proud of its most simple and readable code, and embarrassed by incidental complexity.
-- Embraces functional design where appropriate and is wary of the dangers of shared state.
+When I bring it up, the response I dread the most is a simple "No." 
+
+The response I'm really looking for is a "No, *because*..."
+
+Because I know, at this point in my career, I will be wrong most of the time. But without that explanation, I will continue carry the false assumption that was the root of my conviction into the future. And the only way I will continue to grow is by continuing to learn and to shine a light on those false assumptions. In ten, twenty, even thirty or more years, there will still be countless blindspots in my understanding of the world. Everything I do, I will be ignorant about in some way.
+
+I believe the same thing applies to teams and organizations. There is not, and will never be, a team that knows it all, that never make mistakes that they then can learn from. No matter if you put together a team of the most brilliant, prolific minds, with flawless communication, they will still make mistakes. Because everything they do, they will be ignorant about in some way.
+
+One day, I hope to lead a team myself, to give back all the help and wisdom I received from mentors and friends throughout my career. Once I find myself in that position, the most tragic mistake I could make is to not take my all team's questions seriously. If someone comes to me with their 99th question, and for the 99th time I correct them, I hope I still seriously ponder their question. I hope I still take the time to respond in a way that affirms and sharpens my belief and understanding, as opposed to simply repeating what I already thought. 
+
+Because I always need to be ready for that 100th question, backed by the understanding built by the previous 99 times I said "No, because..." Because that question might just shine a light on another false assumption I have held all those years. Because even then, in everything I do, I will be ignorant about in some way.
+
+I think the best team fit for me closely mirrors the person I am striving to become. Confident in what they know, but humble enough to understand that at any point even their strongest convictions can be upended. With the resolve to face and address problems, and not just work around them. And with an endless hunger to learn and grow. 
+
+Because in everything they do, they will be ignorant about in some way.
+
+[^1]:  From Dr. Spear's [Discovering Your Way to Greatness](https://www.youtube.com/watch?v=h4XMoHhireY) talk at DevOps Summit 2019. He was talking about how Toyota became the best car manufacturer in the world by admitting their ignorance, and building a culture that attacked it. The exact quote is "Everything you do you are ignorant about in some *fashion*," at 14:08. But *some way* ended up in my notes, and I like it better now.
