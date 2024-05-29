@@ -63,22 +63,12 @@ January 2022 -- May 2022
 > 
 > --- Dr. Steven Spear[^1]
 
-I can be a bit stubborn sometimes. When I see something that I think can be improved, something that is likely hurting my organization, an obstacle in the way of our mission, it really bothers me. If I can't shake that feeling on my own, can't figure out why it is and why it works, I'm going to end up bringing it up at some point.
+At this point in my career, my number one priority is to learn as much as possible. I hope this site has been a good representation of that. I have collected the learning materials most influential on my thinking, explored and solidified my understanding through my blog posts, and applied those lessons in my daily work and personal projects.
 
-When I bring it up, the response I dread the most is a simple "No." 
+But what I am missing most is the most powerful learning source of all: a passionate team of fellow learners. I couldn't possibly hope to correct my false assumptions and build a better model of the world any quicker than being surrounded by smart people trying to do the same thing. 
 
-The response I'm really looking for is a "No, *because*..."
+I am looking for a team who is hungry for knowledge, and gets excited about the lessons that can be learned from failure. That understands learning and writing software are iterative processes that require constant effort, change, and experimentation. And is aware that in everything they do, they are ignorant about in some way. 
 
-Because I know, at this point in my career, I will be wrong most of the time. But without that explanation, I will continue carry the false assumption that was the root of my conviction into the future. And the only way I will continue to grow is by continuing to learn and to shine a light on those false assumptions. In ten, twenty, even thirty or more years, there will still be countless blindspots in my understanding of the world. Everything I do, I will be ignorant about in some way.
-
-I believe the same thing applies to teams and organizations. There is not, and will never be, a team that knows it all, that never make mistakes that they then can learn from. No matter if you put together a team of the most brilliant, prolific minds, with flawless communication, they will still make mistakes. Because everything they do, they will be ignorant about in some way.
-
-One day, I hope to lead a team myself, to give back all the help and wisdom I received from mentors and friends throughout my career. Once I find myself in that position, the most tragic mistake I could make is to not take my all team's questions seriously. If someone comes to me with their 99th question, and for the 99th time I correct them, I hope I still seriously ponder their question. I hope I still take the time to respond in a way that affirms and sharpens my belief and understanding, as opposed to simply repeating what I already thought. 
-
-Because I always need to be ready for that 100th question, backed by the understanding built by the previous 99 times I said "No, because..." Because that question might just shine a light on another false assumption I have held all those years. Because even then, in everything I do, I will be ignorant about in some way.
-
-I think the best team fit for me closely mirrors the person I am striving to become. Confident in what they know, but humble enough to understand that at any point even their strongest convictions can be upended. With the resolve to face and address problems, and not just work around them. And with an endless hunger to learn and grow. 
-
-Because in everything they do, they will be ignorant about in some way.
+What are we doing here if we're not trying to meet interesting people and do interesting things?
 
 [^1]:  From Dr. Spear's [Discovering Your Way to Greatness](https://www.youtube.com/watch?v=h4XMoHhireY) talk at DevOps Summit 2019. He was talking about how Toyota became the best car manufacturer in the world by admitting their ignorance, and building a culture that attacked it. The exact quote is "Everything you do you are ignorant about in some *fashion*," at 14:08. But *some way* ended up in my notes, and I like it better now.
