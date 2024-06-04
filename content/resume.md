@@ -1,14 +1,10 @@
----
-title: Resume
-menu: main
-weight: 5
----
 # Resume
 [PDF Download](/blog/docs/resume.pdf)
 
 ---
 # Kevin Kelly
 [kevink2019@gmail.com](mailto:kevink2019@gmail.com) | [GitHub](https://github.com/kevink2022) | [LinkedIn](https://www.linkedin.com/in/kevink2019/)
+Software Engineer professionally passionate about how we build software, both as individuals and as organizations. Serious about learning and get excited about the lessons that can be learned from failure. 
 
 ---
 ## Education
@@ -17,6 +13,7 @@ weight: 5
 University Park, PA
 August 2019 -- December 2022
 - GPA: **3.85**/4
+	- Extracurricular learning materials that influence my thinking the most include Rich Hickey's numerous keynotes, Gene Kim's *Idealcast*, and Scott McConnell's *Code Complete 2*.
 
 ---
 ## Experience
