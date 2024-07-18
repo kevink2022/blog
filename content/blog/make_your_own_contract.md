@@ -4,7 +4,9 @@ title: Make your own contract.
 date: 2024-07-11
 description: Don't try and force a dictionary into set sized shoes.
 tags:
-  - learning
+  - software
+  - software-design
+  - software-complexity
 categories: 
 series: 
 aliases: 

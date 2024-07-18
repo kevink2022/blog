@@ -17,6 +17,6 @@ My general thoughts and mental models of the world, mostly about software and or
 ### [Learning](/blog/learning/)
 The most interesting articles, blog posts, conference talks, podcasts, books, and whatever else I found that influenced my thinking.
 ### [Resume](/blog/resume/)
-Currently looking for a new opportunity! Check out my experience, and what I am looking for in a team here.
+Typical resume stuff.
 ### [About me](/blog/about_me/)
 If you are interested to learn about what I am up to and passionate about outside of my professional life, check out this page.
