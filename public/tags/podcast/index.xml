@@ -2,17 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Podcast on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/podcast/</link>
+    <link>http://localhost:1313/blog/tags/podcast/</link>
     <description>Recent content in Podcast on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
-    <atom:link href="http://localhost:1313/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Podcast] The Idealcast with Gene Kim</title>
-      <link>http://localhost:1313/learning/idealcast/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <link>http://localhost:1313/blog/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/idealcast/</guid>
       <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
       <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
 <p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>

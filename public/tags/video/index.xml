@@ -2,33 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Video on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/video/</link>
+    <link>http://localhost:1313/blog/tags/video/</link>
     <description>Recent content in Video on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
     <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/video/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Video] Code Aesthetic</title>
-      <link>http://localhost:1313/learning/code_aesthetic/</link>
-      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/code_aesthetic/</guid>
-      <description>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:&#xA;Why You Shouldn&amp;rsquo;t Nest Your Code Highlights how simply limiting the amount you nest your code will force you to write better code.&#xA;Don&amp;rsquo;t Write Comments In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</description>
+      <link>http://localhost:1313/blog/learning/code_aesthetic/</link>
+      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/code_aesthetic/</guid>
+      <description>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:&#xA;Why You Shouldn&amp;rsquo;t Nest Your Code Highlights how simply limiting the amount you nest your code will force you to write better code.&#xA;Don&amp;rsquo;t Write Comments In a similar way to nesting, shows how most comments can be eliminated by writing code that reads like a language.</description>
       <content:encoded><![CDATA[<p>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:</p>
 <h3 id="why-you-shouldnt-nest-your-codehttpswwwyoutubecomwatchvcfrhgnuxg-4"><a href="https://www.youtube.com/watch?v=CFRhGnuXG-4">Why You Shouldn&rsquo;t Nest Your Code</a></h3>
 <p>Highlights how simply limiting the amount you nest your code will force you to write better code.</p>
 <h3 id="dont-write-commentshttpswwwyoutubecomwatchvbf7vdbbobua"><a href="https://www.youtube.com/watch?v=Bf7vDBBOBUA">Don&rsquo;t Write Comments</a></h3>
-<p>In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</p>
+<p>In a similar way to nesting, shows how most comments can be eliminated by writing code that <a href="/blog/blog/spoken_vs_programming_languages">reads like a language</a>.</p>
 <h3 id="dependency-injection-the-best-patternhttpswwwyoutubecomcodeaestheticvideos"><a href="https://www.youtube.com/@CodeAesthetic/videos">Dependency Injection, The Best Pattern</a></h3>
 <p>Great visualization and introduction to the many strengths and benefits of dependency injection.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Video] Design in Practice</title>
-      <link>http://localhost:1313/learning/design_in_practice/</link>
-      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/design_in_practice/</guid>
+      <link>http://localhost:1313/blog/learning/design_in_practice/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/design_in_practice/</guid>
       <description>Design in Practice Practical tools and methodologies that Rich and the Clojure/Datomic teams use in their design process, along with real world examples, such and project glossaries and the decision matrix.</description>
       <content:encoded><![CDATA[<h3 id="design-in-practicehttpswwwyoutubecomwatchvc5qf2hjhlset1s"><a href="https://www.youtube.com/watch?v=c5QF2HjHLSE&amp;t=1s">Design in Practice</a></h3>
 <p>Practical tools and methodologies that Rich and the Clojure/Datomic teams use in their design process, along with real world examples, such and project glossaries and the decision matrix.</p>
@@ -36,9 +38,9 @@
     </item>
     <item>
       <title>[Video] [Essentials] Design, Composition, and Performance</title>
-      <link>http://localhost:1313/learning/design_composition_performance/</link>
-      <pubDate>Wed, 03 Apr 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/design_composition_performance/</guid>
+      <link>http://localhost:1313/blog/learning/design_composition_performance/</link>
+      <pubDate>Wed, 03 Apr 2013 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/design_composition_performance/</guid>
       <description>Design, Composition, and Performance Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</description>
       <content:encoded><![CDATA[<h3 id="design-composition-and-performancehttpswwwyoutubecomwatchvqcwqnjxqfmy"><a href="https://www.youtube.com/watch?v=QCwqnjxqfmY">Design, Composition, and Performance</a></h3>
 <p>Building maintainable, composable software not only requires building up levels of abstractions, but being acutely aware of which level of the of the system were working on, and having the mindset to match. Rich Hickey makes a brilliant connection to the different components that go into an orchestral performance: from the composer at the top, to the individual performers, the instruments they play, and the people who designed and crafted those instruments in the first place.</p>
@@ -46,38 +48,39 @@
     </item>
     <item>
       <title>[Video] Simplicity Matters</title>
-      <link>http://localhost:1313/learning/simplicity_matters/</link>
-      <pubDate>Wed, 25 Apr 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/simplicity_matters/</guid>
-      <description>Simplicity Matters A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren&amp;rsquo;t vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.&#xA;Related [[simple_made_easy|Simple Made Easy]] </description>
+      <link>http://localhost:1313/blog/learning/simplicity_matters/</link>
+      <pubDate>Wed, 25 Apr 2012 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/simplicity_matters/</guid>
+      <description>Simplicity Matters A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren&amp;rsquo;t vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.&#xA;Related Simple Made Easy </description>
       <content:encoded><![CDATA[<h3 id="simplicity-mattershttpswwwyoutubecomwatchvri8tnmsozo0"><a href="https://www.youtube.com/watch?v=rI8tNMsozo0">Simplicity Matters</a></h3>
 <p>A followup on the ideas of Simple Made Easy with some more concrete examples of the dangers you run into if you aren&rsquo;t vigilant about simplicity and the opportunities you get when you are. Followed by a breakdown of many of the constructs we use, and whether they have a simple nature or not.</p>
 <h3 id="related">Related</h3>
 <ul>
-<li>[[simple_made_easy|Simple Made Easy]]</li>
+<li><a href="/blog/learning/simple_made_easy">Simple Made Easy</a></li>
 </ul>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Video] [Essentials] Simple Made Easy</title>
-      <link>http://localhost:1313/learning/simple_made_easy/</link>
-      <pubDate>Tue, 20 Sep 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/simple_made_easy/</guid>
-      <description>Simple Made Easy An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &amp;lsquo;inviting the elephant&amp;rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</description>
+      <link>http://localhost:1313/blog/learning/simple_made_easy/</link>
+      <pubDate>Tue, 20 Sep 2011 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/simple_made_easy/</guid>
+      <description>Simple Made Easy An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes.&#xA;Related Simplicity Matters Notes This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &amp;lsquo;inviting the elephant&amp;rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</description>
       <content:encoded><![CDATA[<h3 id="simple-made-easyhttpswwwyoutubecomwatchvsxdougdseq4"><a href="https://www.youtube.com/watch?v=SxdOUGdseq4">Simple Made Easy</a></h3>
-<p>An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes. This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &lsquo;inviting the elephant&rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</p>
+<p>An absolute classic, which I have watched at least once a month since I first saw it. I think anyone writing software without understanding the fundamental difference between simple and easy that Rich articulates in this talk is destined to make some serious mistakes.</p>
 <h3 id="related">Related</h3>
 <ul>
-<li>[[simplicity_matters|Simplicity Matters]]</li>
+<li><a href="/blog/learning/simplicity_matters">Simplicity Matters</a></li>
 </ul>
 <h3 id="notes">Notes</h3>
+<p>This general concept of simple vs easy has to be the biggest influence on how I think not just about software, but pretty much everything, and it was the key that finally unblocked me from writing large systems without inevitable &lsquo;inviting the elephant&rsquo; as Rich describes in 2012 follow-up Simplicity Matters.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Video] Hammock Driven Development</title>
-      <link>http://localhost:1313/learning/hammock_driven_development/</link>
-      <pubDate>Mon, 25 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/hammock_driven_development/</guid>
+      <link>http://localhost:1313/blog/learning/hammock_driven_development/</link>
+      <pubDate>Mon, 25 Oct 2010 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/hammock_driven_development/</guid>
       <description>Hammock Driven Development Rich Hickey goes into the details about how he solves hard problems by utilizing the part of our brains that evolution created for to the deep connections abstractions require: the background brain.</description>
       <content:encoded><![CDATA[<h3 id="hammock-driven-developmenthttpswwwyoutubecomwatchvf84n5ofozbc"><a href="https://www.youtube.com/watch?v=f84n5oFoZBc">Hammock Driven Development</a></h3>
 <p>Rich Hickey goes into the details about how he solves hard problems by utilizing the part of our brains that evolution created for to the deep connections abstractions require: the background brain.</p>
@@ -85,9 +88,9 @@
     </item>
     <item>
       <title>[Video] [Essentials] Are We There Yet?</title>
-      <link>http://localhost:1313/learning/are_we_there_yet/</link>
-      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/are_we_there_yet/</guid>
+      <link>http://localhost:1313/blog/learning/are_we_there_yet/</link>
+      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/are_we_there_yet/</guid>
       <description>Are We There Yet Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher Alfred North Whitehead, that does.</description>
       <content:encoded><![CDATA[<h3 id="are-we-there-yethttpswwwyoutubecomwatchvscepu1cs4l0"><a href="https://www.youtube.com/watch?v=ScEPu1cs4l0">Are We There Yet</a></h3>
 <p>Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher <a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead">Alfred North Whitehead</a>, that does.</p>

@@ -2,33 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Functional-Programming on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/functional-programming/</link>
+    <link>http://localhost:1313/blog/tags/functional-programming/</link>
     <description>Recent content in Functional-Programming on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
     <lastBuildDate>Sat, 23 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Video] Code Aesthetic</title>
-      <link>http://localhost:1313/learning/code_aesthetic/</link>
-      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/code_aesthetic/</guid>
-      <description>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:&#xA;Why You Shouldn&amp;rsquo;t Nest Your Code Highlights how simply limiting the amount you nest your code will force you to write better code.&#xA;Don&amp;rsquo;t Write Comments In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</description>
+      <link>http://localhost:1313/blog/learning/code_aesthetic/</link>
+      <pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/code_aesthetic/</guid>
+      <description>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:&#xA;Why You Shouldn&amp;rsquo;t Nest Your Code Highlights how simply limiting the amount you nest your code will force you to write better code.&#xA;Don&amp;rsquo;t Write Comments In a similar way to nesting, shows how most comments can be eliminated by writing code that reads like a language.</description>
       <content:encoded><![CDATA[<p>Great introduction to many different programming concepts. Highly recommend watching the whole channel, only 90 minutes on YouTube so far. Some of my favorites:</p>
 <h3 id="why-you-shouldnt-nest-your-codehttpswwwyoutubecomwatchvcfrhgnuxg-4"><a href="https://www.youtube.com/watch?v=CFRhGnuXG-4">Why You Shouldn&rsquo;t Nest Your Code</a></h3>
 <p>Highlights how simply limiting the amount you nest your code will force you to write better code.</p>
 <h3 id="dont-write-commentshttpswwwyoutubecomwatchvbf7vdbbobua"><a href="https://www.youtube.com/watch?v=Bf7vDBBOBUA">Don&rsquo;t Write Comments</a></h3>
-<p>In a similar way to nesting, shows how most comments can be eliminated by writing code that [reads like a language].</p>
+<p>In a similar way to nesting, shows how most comments can be eliminated by writing code that <a href="/blog/blog/spoken_vs_programming_languages">reads like a language</a>.</p>
 <h3 id="dependency-injection-the-best-patternhttpswwwyoutubecomcodeaestheticvideos"><a href="https://www.youtube.com/@CodeAesthetic/videos">Dependency Injection, The Best Pattern</a></h3>
 <p>Great visualization and introduction to the many strengths and benefits of dependency injection.</p>
 ]]></content:encoded>
     </item>
     <item>
       <title>[Video] [Essentials] Are We There Yet?</title>
-      <link>http://localhost:1313/learning/are_we_there_yet/</link>
-      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/are_we_there_yet/</guid>
+      <link>http://localhost:1313/blog/learning/are_we_there_yet/</link>
+      <pubDate>Thu, 17 Sep 2009 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/are_we_there_yet/</guid>
       <description>Are We There Yet Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher Alfred North Whitehead, that does.</description>
       <content:encoded><![CDATA[<h3 id="are-we-there-yethttpswwwyoutubecomwatchvscepu1cs4l0"><a href="https://www.youtube.com/watch?v=ScEPu1cs4l0">Are We There Yet</a></h3>
 <p>Rich Hickey goes into some of the flaws with how data is represented in object oriented programming and by clarifying the differences between value, time, identity, and state. Then he introduces a new mental model, inspired by mathematician and philosopher <a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead">Alfred North Whitehead</a>, that does.</p>
@@ -36,9 +38,9 @@
     </item>
     <item>
       <title>[Podcast] The Idealcast with Gene Kim</title>
-      <link>http://localhost:1313/learning/idealcast/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <link>http://localhost:1313/blog/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/idealcast/</guid>
       <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
       <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
 <p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>

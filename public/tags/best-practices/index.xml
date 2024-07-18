@@ -2,18 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Best-Practices on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/best-practices/</link>
+    <link>http://localhost:1313/blog/tags/best-practices/</link>
     <description>Recent content in Best-Practices on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
     <lastBuildDate>Mon, 01 Oct 2001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Blog] In Defense of Not-Invented-Here Syndrome</title>
-      <link>http://localhost:1313/learning/defense_of_nih/</link>
-      <pubDate>Mon, 01 Oct 2001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/defense_of_nih/</guid>
+      <link>http://localhost:1313/blog/learning/defense_of_nih/</link>
+      <pubDate>Mon, 01 Oct 2001 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/defense_of_nih/</guid>
       <description>In Defense of Not-Invented-Here Syndrome Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&amp;rsquo;t. Like all software &amp;rsquo;laws,&amp;rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.&#xA;Related Hacker News Discussion (2023) </description>
       <content:encoded><![CDATA[<h3 id="in-defense-of-not-invented-here-syndromehttpswwwjoelonsoftwarecom20011014in-defense-of-not-invented-here-syndrome"><a href="https://www.joelonsoftware.com/2001/10/14/in-defense-of-not-invented-here-syndrome/">In Defense of Not-Invented-Here Syndrome</a></h3>
 <p>Not-Invented-Here Syndrome: just like repeating your code, its always terrible. Except when it isn&rsquo;t. Like all software &rsquo;laws,&rsquo; Joel reminds us that everything is context based. Half the reason we learn these rules is so we know when its best to break them.</p>

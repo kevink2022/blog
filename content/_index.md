@@ -15,7 +15,7 @@ If you want to get in touch, you can reach me via [email](mailto:kevink2019@gmai
 ### [Blog](/blog/blog/)
 My general thoughts and mental models of the world, mostly about software and organizations, along with some project blogs about different design choices and why I am made them. Generally an exercise in challenging my unorganized thoughts and turning them into concrete beliefs and ideas. 
 ### [Learning](/blog/learning/)
-The most interesting articles, blog posts, conference talks, podcasts, books, and whatever else I found that inspired, influenced my thinking, and I'd like to share with the world. Be sure to check out the [#essentials](/blog/tags/essentials) tag first.
+The most interesting articles, blog posts, conference talks, podcasts, books, and whatever else I found that influenced my thinking.
 ### [Resume](/blog/resume/)
 Currently looking for a new opportunity! Check out my experience, and what I am looking for in a team here.
 ### [About me](/blog/about_me/)

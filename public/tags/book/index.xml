@@ -2,18 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Book on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/book/</link>
+    <link>http://localhost:1313/blog/tags/book/</link>
     <description>Recent content in Book on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
     <lastBuildDate>Mon, 28 Apr 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/book/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Blog] Programmers Don&#39;t Read Books -- But You Should</title>
-      <link>http://localhost:1313/learning/programmers_should_read_books/</link>
-      <pubDate>Mon, 28 Apr 2008 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/programmers_should_read_books/</guid>
+      <link>http://localhost:1313/blog/learning/programmers_should_read_books/</link>
+      <pubDate>Mon, 28 Apr 2008 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/programmers_should_read_books/</guid>
       <description>Programmers Don&amp;rsquo;t Read Books &amp;ndash; But You Should Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his recommended reading list.</description>
       <content:encoded><![CDATA[<h3 id="programmers-dont-read-books----but-you-shouldhttpsblogcodinghorrorcomprogrammers-dont-read-books-but-you-should"><a href="https://blog.codinghorror.com/programmers-dont-read-books-but-you-should/">Programmers Don&rsquo;t Read Books &ndash; But You Should</a></h3>
 <p>Jeff Atwood discusses that while the market is flush with bad and boring programming books, finding - then reading - the good ones is still vital to our growth as engineers. Definitely check out his <a href="https://blog.codinghorror.com/recommended-reading-for-developers/">recommended reading list</a>.</p>
@@ -21,9 +23,9 @@
     </item>
     <item>
       <title>[Book] The Mythical Man-Month: Essays on Software Engineering</title>
-      <link>http://localhost:1313/learning/the_mythical_man_month/</link>
-      <pubDate>Fri, 01 Aug 1975 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/the_mythical_man_month/</guid>
+      <link>http://localhost:1313/blog/learning/the_mythical_man_month/</link>
+      <pubDate>Fri, 01 Aug 1975 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/the_mythical_man_month/</guid>
       <description>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his reading list:&#xA;&amp;ldquo;Computers may change, but people don&amp;rsquo;t.&amp;rdquo;&#xA;&amp;mdash; Jeff Atwood</description>
       <content:encoded><![CDATA[<h3 id="the-mythical-man-month-essays-on-software-engineering-anniversary-editionhttpswwwthriftbookscomwthe-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr245869"><a href="https://www.thriftbooks.com/w/the-mythical-man-month-essays-on-software-engineering-20th--anniversary-edition_frederick-p-brooks-jr/245869/">The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</a></h3>
 <p>A classic on software leader, Fred Brooks discusses his experience and the lessons he learned on the IBM OS/360 project. Jeff Atwood says it best on his <a href="">reading list</a>:</p>

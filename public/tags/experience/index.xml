@@ -2,18 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Experience on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/experience/</link>
+    <link>http://localhost:1313/blog/tags/experience/</link>
     <description>Recent content in Experience on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
     <lastBuildDate>Fri, 23 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/experience/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/experience/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Blog] After 14 years in the industry, I still find programming difficult</title>
-      <link>http://localhost:1313/learning/fourteen_years_still_difficult/</link>
-      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/fourteen_years_still_difficult/</guid>
+      <link>http://localhost:1313/blog/learning/fourteen_years_still_difficult/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/fourteen_years_still_difficult/</guid>
       <description>After 14 years in the industry, I still find programming difficult An insightful reflection in the midst of a career software, along with some practical lessons.&#xA;Related Hacker News Discussion </description>
       <content:encoded><![CDATA[<h3 id="after-14-years-in-the-industry-i-still-find-programming-difficulthttpswwwpigleicomarticlesen-programming-is-still-hard-after-14-years"><a href="https://www.piglei.com/articles/en-programming-is-still-hard-after-14-years/">After 14 years in the industry, I still find programming difficult</a></h3>
 <p>An insightful reflection in the midst of a career software, along with some practical lessons.</p>

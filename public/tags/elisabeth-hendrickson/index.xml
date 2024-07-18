@@ -2,18 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Elisabeth-Hendrickson on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/elisabeth-hendrickson/</link>
+    <link>http://localhost:1313/blog/tags/elisabeth-hendrickson/</link>
     <description>Recent content in Elisabeth-Hendrickson on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
     <lastBuildDate>Sat, 01 Dec 2001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/elisabeth-hendrickson/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/elisabeth-hendrickson/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Paper] Better Testing, Worse Quality?</title>
-      <link>http://localhost:1313/learning/better_testing_worse_quality/</link>
-      <pubDate>Sat, 01 Dec 2001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/better_testing_worse_quality/</guid>
+      <link>http://localhost:1313/blog/learning/better_testing_worse_quality/</link>
+      <pubDate>Sat, 01 Dec 2001 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/better_testing_worse_quality/</guid>
       <description>Better Testing, Worse Quality? Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</description>
       <content:encoded><![CDATA[<h3 id="better-testing-worse-qualityhttpsciteseerxistpsuedudocumentrepidrep1typepdfdoi309d45cb667d5ce43365bc30a5e82f118f42b4d0"><a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=309d45cb667d5ce43365bc30a5e82f118f42b4d0">Better Testing, Worse Quality?</a></h3>
 <p>Elisabeth Hendrickson tells a story inspired by her own experience as a Quality Assurance manager showing how the downstream effects of organizational structure can lead to the exact opposite of the desired outcomes.</p>
@@ -21,9 +23,9 @@
     </item>
     <item>
       <title>[Podcast] The Idealcast with Gene Kim</title>
-      <link>http://localhost:1313/learning/idealcast/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/idealcast/</guid>
+      <link>http://localhost:1313/blog/learning/idealcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/idealcast/</guid>
       <description>The Idealcast with Gene Kim Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:&#xA;Elisabeth Hendrickson Episode 3: Achieving Better Outcomes through Structure Episode 4: (Dispatch from the Scenius) Elisabeth Hendrickson&amp;rsquo;s DevOps Enterprise Summit Presentations Dr. Steven Spear Episode 5: The Pursuit of Perfection: Dominant Architectures and Dynamics (Part 1) Episode 6: (Dispatch from the Scenius) Dr.</description>
       <content:encoded><![CDATA[<h3 id="the-idealcast-with-gene-kimhttpsitrevolutioncompodcast"><a href="https://itrevolution.com/podcast/">The Idealcast with Gene Kim</a></h3>
 <p>Gene Kim brings technology and business leaders on to to share their insights and mental models with the world. The guests that have really shaped my understanding of organizations are listed below:</p>

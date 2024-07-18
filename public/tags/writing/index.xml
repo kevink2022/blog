@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Writing on Kevin Kelly</title>
-    <link>http://localhost:1313/tags/writing/</link>
+    <link>http://localhost:1313/blog/tags/writing/</link>
     <description>Recent content in Writing on Kevin Kelly</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>kevink2019@gmail.com (Kevin Kelly)</managingEditor>
+    <webMaster>kevink2019@gmail.com (Kevin Kelly)</webMaster>
     <copyright>Kevin Kelly (CC BY 4.0)</copyright>
     <lastBuildDate>Thu, 25 Apr 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/writing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Blog] Language is a Bottleneck for Thought</title>
-      <link>http://localhost:1313/learning/language_is_a_bottleneck/</link>
-      <pubDate>Thu, 25 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/learning/language_is_a_bottleneck/</guid>
+      <link>http://localhost:1313/blog/learning/language_is_a_bottleneck/</link>
+      <pubDate>Thu, 25 Apr 2024 00:00:00 +0000</pubDate><author>kevink2019@gmail.com (Kevin Kelly)</author>
+      <guid>http://localhost:1313/blog/learning/language_is_a_bottleneck/</guid>
       <description>Language is a Bottleneck for Thought Marco Giancotti making a great point on how our words really can&amp;rsquo;t express our thoughts. This post has been hugely influential on how I think about learning and understanding.</description>
       <content:encoded><![CDATA[<h3 id="language-is-a-bottleneck-for-thoughthttpsaethermugcompostslanguage-is-a-bottleneck-for-thought"><a href="https://aethermug.com/posts/language-is-a-bottleneck-for-thought">Language is a Bottleneck for Thought</a></h3>
-<p>Marco Giancotti making a great point on how our words really can&rsquo;t express our thoughts. This post has been hugely influential on how I think about <a href="/blog/knowing_vs_understanding">learning and understanding</a>.</p>
+<p>Marco Giancotti making a great point on how our words really can&rsquo;t express our thoughts. This post has been hugely influential on how I think about <a href="/blog/blog/knowing_vs_understanding">learning and understanding</a>.</p>
 ]]></content:encoded>
     </item>
   </channel>

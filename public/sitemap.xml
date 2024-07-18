@@ -2,208 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2024-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/blog/</loc>
+    <lastmod>2024-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/learning/</loc>
+  </url><url>
+    <loc>http://localhost:1313/blog/resume/</loc>
+  </url><url>
+    <loc>http://localhost:1313/blog/about_me/</loc>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/learning/</loc>
+    <lastmod>2024-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/blog/make_your_own_contract/</loc>
+    <lastmod>2024-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/</loc>
+    <lastmod>2024-07-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/blog/knowing_vs_understanding/</loc>
     <lastmod>2024-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/learning/</loc>
-    <lastmod>2024-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/resume/</loc>
-  </url><url>
-    <loc>http://localhost:1313/about_me/</loc>
-  </url><url>
-    <loc>http://localhost:1313/blog/knowing_vs_understanding/</loc>
-    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/learning/</loc>
-    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/boomic/</loc>
+    <loc>http://localhost:1313/blog/tags/boomic/</loc>
     <lastmod>2024-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/boomic_architecture/</loc>
+    <loc>http://localhost:1313/blog/blog/boomic_architecture/</loc>
     <lastmod>2024-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/software/</loc>
+    <loc>http://localhost:1313/blog/tags/software/</loc>
     <lastmod>2024-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/software-design/</loc>
+    <loc>http://localhost:1313/blog/tags/software-design/</loc>
     <lastmod>2024-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/swift/</loc>
+    <loc>http://localhost:1313/blog/tags/swift/</loc>
     <lastmod>2024-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/spoken_vs_programming_languages/</loc>
+    <loc>http://localhost:1313/blog/blog/spoken_vs_programming_languages/</loc>
     <lastmod>2024-04-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/language/</loc>
+    <loc>http://localhost:1313/blog/tags/language/</loc>
     <lastmod>2024-04-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/programming-languages/</loc>
+    <loc>http://localhost:1313/blog/tags/programming-languages/</loc>
     <lastmod>2024-04-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/software-quality/</loc>
+    <loc>http://localhost:1313/blog/tags/software-quality/</loc>
     <lastmod>2024-04-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/learning/language_is_a_bottleneck/</loc>
-    <lastmod>2024-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/writing/</loc>
-    <lastmod>2024-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/fourteen_years_still_difficult/</loc>
-    <lastmod>2024-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/blog/</loc>
-    <lastmod>2024-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/experience/</loc>
-    <lastmod>2024-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/text/</loc>
-    <lastmod>2024-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/ten_things_about_learning/</loc>
-    <lastmod>2023-12-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/article/</loc>
-    <lastmod>2023-12-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/essentials/</loc>
-    <lastmod>2023-12-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/code_aesthetic/</loc>
-    <lastmod>2023-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/abstraction/</loc>
-    <lastmod>2023-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/dependency-injection/</loc>
-    <lastmod>2023-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/functional-programming/</loc>
-    <lastmod>2023-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/inheritance/</loc>
-    <lastmod>2023-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/performance/</loc>
-    <lastmod>2023-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/video/</loc>
-    <lastmod>2023-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/design_in_practice/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/conference-talk/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/rich-hickey/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/brooklyn_data_sql_style_guide/</loc>
-    <lastmod>2021-11-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/sql/</loc>
-    <lastmod>2021-11-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/style-guide/</loc>
-    <lastmod>2021-11-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/john_carmack_inlining/</loc>
-    <lastmod>2014-09-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/software-complexity/</loc>
-    <lastmod>2014-09-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/design_composition_performance/</loc>
-    <lastmod>2013-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/simplicity_matters/</loc>
-    <lastmod>2012-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/simple_made_easy/</loc>
-    <lastmod>2011-09-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/problem-solving/</loc>
-    <lastmod>2011-09-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/hammock_driven_development/</loc>
-    <lastmod>2010-10-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/are_we_there_yet/</loc>
-    <lastmod>2009-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/persistent-data/</loc>
-    <lastmod>2009-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/design_is_an_island/</loc>
-    <lastmod>2009-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/kent-beck/</loc>
-    <lastmod>2009-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/programmers_should_read_books/</loc>
-    <lastmod>2008-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/book/</loc>
-    <lastmod>2008-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/jeff-atwood/</loc>
-    <lastmod>2008-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/better_testing_worse_quality/</loc>
-    <lastmod>2001-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/elisabeth-hendrickson/</loc>
-    <lastmod>2001-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/leadership/</loc>
-    <lastmod>2001-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/organizations/</loc>
-    <lastmod>2001-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/paper/</loc>
-    <lastmod>2001-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/defense_of_nih/</loc>
-    <lastmod>2001-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/best-practices/</loc>
-    <lastmod>2001-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/joel-spolsky/</loc>
-    <lastmod>2001-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/fixing_problems_before_they_happen/</loc>
-    <lastmod>2001-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/the_mythical_man_month/</loc>
-    <lastmod>1975-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/fred-brooks/</loc>
-    <lastmod>1975-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/learning/idealcast/</loc>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/gene-kim/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/podcast/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/ron-westrum/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/scott-havens/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/steven-spear/</loc>
+    <loc>http://localhost:1313/blog/categories/</loc>
   </url>
 </urlset>

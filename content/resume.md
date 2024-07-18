@@ -1,3 +1,8 @@
+---
+title: Resume
+menu: main
+weight: 5
+---
 # Resume
 [PDF Download](/blog/docs/resume.pdf)
 
