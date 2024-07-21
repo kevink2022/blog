@@ -4,10 +4,10 @@ menu: main
 weight: 3
 ---
 ### Rich Hickey's Keynotes
-My favorite engineer, Rich Hickey presents new ways to think about data and the craft of programming. I consider all these listed ones to be must watches, if your working in software and haven't seen them, you're doing yourself a disservice.
+My favorite engineer, Rich Hickey presents new ways to think about data and the craft of programming. I consider the 4 listed ones to be must watches. If you're working in software and haven't seen them, you're doing yourself a disservice.
 
 {{< youtube SxdOUGdseq4 >}}
-Make sure you don't mistake easy for simple. Sounds weird? You should watch.
+Make sure you don't mistake easy for simple. Sounds weird? Watch and find out.
 
 Other favorites:
 - [Are We There Yet](https://www.youtube.com/watch?v=ScEPu1cs4l0) - A break down state into its fundamental components, giving us a new way to think about data and observation in our digital systems, grounded in the real world.
@@ -46,4 +46,4 @@ A deep dive into the science of refactoring, and how to do it like a professiona
 
 {{< youtube CFRhGnuXG-4 >}}
 
-A catalog high quality, accessible videos that dive into software design concepts, encouraging clean and maintainable code. The first thing I send to anyone looking to take their software quality to the next level.
+A catalog of high quality, accessible videos that dive into software design concepts, encouraging clean and maintainable code. The first thing I send to anyone looking to take their software quality to the next level.
