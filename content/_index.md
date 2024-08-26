@@ -5,11 +5,7 @@ weight: 1
 ---
 
 # About the website
-Hello! My name is Kevin Kelly, and welcome to my personal website. This is where I gather my general thoughts on software and writing, as well as the learning materials that influenced me the most. 
-
-I am a Software Engineer with a B.S. in Computer Engineering from Penn State. Currently employed as an Implementation Consultant in Sacramento, CA. After hours I am working on [Boomic Music](/blog/tags/boomic), a music player and organizer for power users and enthusiasts like myself.
-
-Professionally, I am most passionate about how we build software, both as individuals and as organizations. This has lead me to dive into topics such as how we can express and challenge ideas, how we can communicate those ideas, and how we can structure our organizations to facilitate successful communication. By far the biggest influences on my thinking here come from [Rich Hickey](/blog/tags/rich-hickey) and his many insightful keynotes, and the many great guests Gene Kim hosts on the [The Idealcast](/blog/learning/idealcast).
+Hello! My name is Kevin Kelly, and welcome to my personal website. I am a Software Engineer with a B.S. in Computer Engineering from Penn State. Currently employed as an Implementation Consultant in Sacramento, CA. After hours I am working on [Boomic Music](/blog/tags/boomic), a music player and organizer for power users and enthusiasts like myself.
 
 If you want to get in touch, you can reach me via [email](mailto:kevink2019@gmail.com) or find me on [Github](https://github.com/kevink2022) and [LinkedIn](https://www.linkedin.com/in/kevink2019/). Currently not on any other socials.
 ### [Blog](/blog/blog/)
@@ -17,6 +13,6 @@ My general thoughts and mental models of the world, mostly about software and or
 ### [Learning](/blog/learning/)
 The most interesting articles, blog posts, conference talks, podcasts, books, and whatever else I found that influenced my thinking.
 ### [Resume](/blog/resume/)
-Typical resume stuff.
+The typical resume stuff.
 ### [About me](/blog/about_me/)
 If you are interested to learn about what I am up to and passionate about outside of my professional life, check out this page.
