@@ -220,7 +220,9 @@ private static func song(from file: URL) -> Song {
 		
 		// 1a. Extract Embedded Tags
 		var dict: CFDictionary? = nil
-		var dataSize = UInt32(MemoryLayout<CFDictionary?>.size(ofValue: dict))
+		var dataSize = UInt32(
+			MemoryLayout<CFDictionary?>.size(ofValue: dict)
+		)
 		
 		let getPropertyStatus: OSStatus = AudioFileGetProperty(
 			fileID
@@ -264,7 +266,8 @@ private static func song(from file: URL) -> Song {
 	
 	// 2. Check for Album Art in Album Directory
 	let fileManager = FileManager()
-	let directoryURL = file.deletingLastPathComponent() // This is an assumption we're making for this example
+	// This is an assumption we're making for this example
+	let directoryURL = file.deletingLastPathComponent() 
 	var externalArt: URL?
 	
 	do {
@@ -281,8 +284,8 @@ private static func song(from file: URL) -> Song {
 				.lastPathComponent
 				.lowercased()
 
-			let isCover = ["cover", "folder", "album"].contains(fileName) && 
-				["jpg", "png"].contains(fileExtension)
+			let isCover = ["cover", "folder", "album"].contains(fileName) 
+				&& ["jpg", "png"].contains(fileExtension)
 			
 			if isCover {
 				return true
@@ -299,7 +302,10 @@ private static func song(from file: URL) -> Song {
 	var albumArt: MediaArt? = nil
 	
 	if let embeddedArtHash = embeddedArtHash {
-		albumArt = .embedded(path: AppPath(url: file), hash: embeddedArtHash)
+		albumArt = .embedded(
+			path: AppPath(url: file)
+			, hash: embeddedArtHash
+		)
 	} else if let externalArt = externalArt {
 		albumArt = .local(path: AppPath(url: externalArt))
 	}
@@ -513,15 +519,33 @@ Now that we'd be be duplicating a lot of that code, we can finally give these co
 ``` swift
 func enumerate(of extensions: Set<String>? = nil, excluding: Set<URL>? = nil) throws -> [URL] {
 	let allURLs = try allFiles()
-	let allExtensionURLs = filterExtensions(include: extensions, in: allURLs)
-	let allNewURLs = filterExcludedURLs(exclude: excluding, from: allExtensionURLs)
+	
+	let allExtensionURLs = filterExtensions(
+		include: extensions
+		, in: allURLs
+	)
+	
+	let allNewURLs = filterExcludedURLs(
+		exclude: excluding
+		, from: allExtensionURLs
+	)
+	
 	return allNewURLs
 }
 
 func enumerate(of extensions: Set<String>? = nil, excluding: Set<AppPath>? = nil) throws -> [URL] {
 	let allURLs = try allFiles()
-	let allExtensionURLs = filterExtensions(include: extensions, in: allURLs)
-	let allNewURLs = filterExcludedAppPaths(exclude: excluding, from: allExtensionURLs)
+	
+	let allExtensionURLs = filterExtensions(
+		include: extensions
+		, in: allURLs
+	)
+	
+	let allNewURLs = filterExcludedAppPaths(
+		exclude: excluding
+		, from: allExtensionURLs
+	)
+	
 	return allNewURLs
 }
 ```
