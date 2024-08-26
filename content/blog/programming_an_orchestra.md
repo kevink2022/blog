@@ -208,7 +208,12 @@ private static func song(from file: URL) -> Song {
 	var tags: [String : Any] = [:]
 	var embeddedArtHash: String? = nil
 	
-	let fileOpenStatus: OSStatus = AudioFileOpenURL(file as CFURL, .readPermission, kAudioFileMP3Type, &fileID)
+	let fileOpenStatus: OSStatus = AudioFileOpenURL(
+		file as CFURL
+		, .readPermission
+		, kAudioFileMP3Type
+		, &fileID
+	)
 	
 	if fileOpenStatus == noErr, let fileID = fileID {
 		defer { AudioFileClose(fileID) }
@@ -217,21 +222,40 @@ private static func song(from file: URL) -> Song {
 		var dict: CFDictionary? = nil
 		var dataSize = UInt32(MemoryLayout<CFDictionary?>.size(ofValue: dict))
 		
-		let getPropertyStatus: OSStatus = AudioFileGetProperty(fileID, kAudioFilePropertyInfoDictionary, &dataSize, &dict)
+		let getPropertyStatus: OSStatus = AudioFileGetProperty(
+			fileID
+			, kAudioFilePropertyInfoDictionary
+			, &dataSize, &dict
+		)
+		
 		if getPropertyStatus == noErr, let cfDict = dict {
 			let tagsDict = NSDictionary.init(dictionary: cfDict)
 			tags = tagsDict as? [String : Any] ?? [:]
 		}
 		
 		// 1b. Extract Embedded Album Art
-		let embeddedArtStatus = AudioFileGetPropertyInfo(fileID, kAudioFilePropertyAlbumArtwork, &dataSize, nil)
+		let embeddedArtStatus = AudioFileGetPropertyInfo(
+			fileID
+			, kAudioFilePropertyAlbumArtwork
+			, &dataSize
+			, nil
+		)
 		
 		if embeddedArtStatus == noErr {
 			var artworkData: UnsafeMutableRawPointer? = nil
-			let result = AudioFileGetProperty(fileID, kAudioFilePropertyAlbumArtwork, &dataSize, &artworkData)
+			
+			let result = AudioFileGetProperty(
+				fileID
+				, kAudioFilePropertyAlbumArtwork
+				, &dataSize
+				, &artworkData
+			)
 			
 			if result == noErr, let artworkDataUnwrapped = artworkData {
-				let cfData = Unmanaged<CFData>.fromOpaque(artworkDataUnwrapped).takeRetainedValue()
+				let cfData = Unmanaged<CFData>
+					.fromOpaque(artworkDataUnwrapped)
+					.takeRetainedValue()
+					
 				let data = Data(referencing: cfData)
 				embeddedArtHash = HashUtility.computeHash(data: data)
 			}
@@ -244,12 +268,23 @@ private static func song(from file: URL) -> Song {
 	var externalArt: URL?
 	
 	do {
-		let filesInDirectory = try fileManager.contentsOfDirectory(at: directoryURL, includingPropertiesForKeys: nil, options: [])
+		let filesInDirectory = try fileManager.contentsOfDirectory(
+			at: directoryURL
+			, includingPropertiesForKeys: nil
+			, options: []
+		)
 		
 		let artworkFiles = filesInDirectory.filter { url in
-			let fileName = url.deletingPathExtension().lastPathComponent.lowercased()
 			let fileExtension = url.pathExtension.lowercased()
-			if ["cover", "folder", "album"].contains(fileName) && ["jpg", "png"].contains(fileExtension) {
+			let fileName = url
+				.deletingPathExtension()
+				.lastPathComponent
+				.lowercased()
+
+			let isCover = ["cover", "folder", "album"].contains(fileName) && 
+				["jpg", "png"].contains(fileExtension)
+			
+			if isCover {
 				return true
 			} else {
 				return false
@@ -271,11 +306,12 @@ private static func song(from file: URL) -> Song {
 	
 	// 3b. Init and return song
 	let fileName = file.lastPathComponent
+	let durationTag = "approximate duration in seconds"
 	
 	return Song(
 		id: UUID()
 		, source: .local(path: AppPath(url: file))
-		, duration: TimeInterval(tags["approximate duration in seconds"] as? String ?? "") ?? 0
+		, duration: TimeInterval(tags[durationTag] as? String ?? "") ?? 0
 		, title: tags["title"] as? String ?? fileName
 		, trackNumber: Int(tags["track number"] as? String ?? "")
 		, discNumber: Int(fileName.split(separator: "-")[0])
@@ -304,7 +340,12 @@ static func songBetter(from file: URL) -> Song {
 	var tags: [String : Any] = [:]
 	var embeddedArtHash: String? = nil
 	
-	let fileOpenStatus: OSStatus = AudioFileOpenURL(file as CFURL, .readPermission, kAudioFileMP3Type, &fileID)
+	let fileOpenStatus: OSStatus = AudioFileOpenURL(
+		file as CFURL
+		, .readPermission
+		, kAudioFileMP3Type
+		, &fileID
+	)
 	
 	if fileOpenStatus == noErr, let fileID = fileID {
 		defer { AudioFileClose(fileID) }
@@ -317,15 +358,20 @@ static func songBetter(from file: URL) -> Song {
 	let externalArt = try? externalArtFile(for: file)
 
 	// 3. Determine Album Art
-	let albumArt = albumArtFrom(for: file, embeddedHash: embeddedArtHash, externalFile: externalArt)
+	let albumArt = albumArtFrom(
+		for: file
+		, embeddedHash: embeddedArtHash
+		, externalFile: externalArt
+	)
 	
 	// Init and return song
 	let fileName = file.lastPathComponent
+	let durationTag = "approximate duration in seconds"
 	
 	return Song(
 		id: UUID()
 		, source: .local(path: AppPath(url: file))
-		, duration: TimeInterval(tags["approximate duration in seconds"] as? String ?? "") ?? 0
+		, duration: TimeInterval(tags[durationTag] as? String ?? "") ?? 0
 		, title: tags["title"] as? String ?? fileName
 		, trackNumber: Int(tags["track number"] as? String ?? "")
 		, discNumber: Int(fileName.split(separator: "-")[0])
@@ -403,7 +449,12 @@ private static func initTags(_ fileID: AudioFileID) -> [String : Any]? {
 	var dict: CFDictionary? = nil
 	var dataSize = UInt32(MemoryLayout<CFDictionary?>.size(ofValue: dict))
 	
-	let getPropertyStatus: OSStatus = AudioFileGetProperty(fileID, kAudioFilePropertyInfoDictionary, &dataSize, &dict)
+	let getPropertyStatus: OSStatus = AudioFileGetProperty(
+		fileID
+		, kAudioFilePropertyInfoDictionary
+		, &dataSize
+		, &dict
+	)
 	guard getPropertyStatus == noErr else { return nil }
 	
 	guard let cfDict = dict else { return nil }
