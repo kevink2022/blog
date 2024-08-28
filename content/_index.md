@@ -5,7 +5,7 @@ weight: 1
 ---
 
 # About the website
-Hello! My name is Kevin Kelly, and welcome to my personal website. I am a Software Engineer with a B.S. in Computer Engineering from Penn State. Currently employed as an Implementation Consultant in Sacramento, CA. After hours I am working on [Boomic Music](/blog/tags/boomic), a music player and organizer for power users and enthusiasts like myself.
+Hello! My name is Kevin Kelly, and welcome to my website! I am a Software Engineer with a B.S. in Computer Engineering from Penn State. Currently employed as an Implementation Consultant in Sacramento, CA. After hours I am working on [Boomic Music](https://github.com/kevink2022/Boomic), a music player and organizer for power users and enthusiasts like myself.
 
 If you want to get in touch, you can reach me via [email](mailto:kevink2019@gmail.com) or find me on [Github](https://github.com/kevink2022) and [LinkedIn](https://www.linkedin.com/in/kevink2019/). Currently not on any other socials.
 ### [Blog](/blog/blog/)

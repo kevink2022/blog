@@ -13,6 +13,8 @@ series:
 aliases: 
 draft: false
 ---
+UPDATE: This concept is much better articulated in [Programming an Orchestra](/blog/blog/programming_an_orchestra.md)
+
 The first time I set out to make Boomic, I didn't think about architecture at all. The app quickly became a coupled disaster, and making the smallest changes felt daunting. This time around, I committed to learning and understanding software design and architecture. To learn to build a composable system, designed for change. This is how I started, where I went wrong, and where I am now.
 
 I ended up starting my development based on the layered architecture from Jacob Bartlett's excellent post on [Modular Architecture for Apps](https://jacobbartlett.substack.com/p/modular-architecture-for-apps). I was closely following the architecture of their [Bev Sample App](https://github.com/jacobsapps/bev17/tree/main?tab=readme-ov-file), using the Repository pattern, featured in his series on [Async Unit Testing](https://jacobbartlett.substack.com/p/async-unit-testing-in-swift-the-comprehensive). I highly recommend [Jacobs Tech Tavern](https://jacobbartlett.substack.com/) to any iOS app developers.

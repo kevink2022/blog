@@ -1,6 +1,6 @@
 ---
 author: Kevin Kelly
-title: Programming a Symphony with Instruments, Performers, and Composers.
+title: "Programming a Symphony: Instruments, Performers, and Composers."
 date: 2024-08-26
 description: Think
 tags:

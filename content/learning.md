@@ -44,7 +44,7 @@ A fascinating deep dive into how people actually use and interact with things, p
 ### The Psychology of Computer Programming
 *By Gerald Weinberg*
 
-[![The Psychology of Computer Programming Cover](/blog/images/pocp.png)](https://www.goodreads.com/book/show/1660754.The_Psychology_of_Computer_Programming)
+[![The Psychology of Computer Programming Cover](/blog/images/pocp.jpg)](https://www.goodreads.com/book/show/1660754.The_Psychology_of_Computer_Programming)
 
 The first book of its kind, Gerald Weinberg goes through all the human aspects to writing code. From how our languages and tools, our organizations, leaders, and colleagues, our goals and environments, our past experiences and current circumstances, and more all effect the work we do. Though it was written in 1971, people don't change like technology does, and I have learned so much from this book, from how informal networks effect our 
 
